@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kathuskan Thavarajah – Portfolio</title>
+  <title>Kathuskan Thavarajah | Data Science Portfolio</title>
   <meta name="description"
-    content="Portfolio of Kathuskan Thavarajah – Data Science undergraduate and developer. Projects: Pocket Manager (Personal Finance Tracker)." />
+    content="Kathuskan Thavarajah — Data Science undergraduate seeking an internship. Explore machine learning, NLP, and full-stack projects." />
   <meta name="author" content="Kathuskan Thavarajah" />
   <meta name="theme-color" content="#0f172a" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -878,403 +878,125 @@
         box-shadow: none !important;
       }
     }
-  </style>
+  
+/* Responsive, accessible refinements */
+a { color: inherit; } button,input,textarea { font: inherit; } button { color: var(--text); }
+a:focus-visible,button:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.nav a { text-decoration: none; } .nav-menu { gap: 24px; } .menu-toggle { display: none; }
+.skip-link { position: fixed; top: -80px; left: 16px; z-index: 2000; padding: 12px; background: var(--bg-card); }
+.skip-link:focus { top: 12px; } .hero { isolation: isolate; } .hero-wrap > * { min-width: 0; }
+.hero h1 { font-size: clamp(38px,5vw,68px); } .hero-role { display: block; font-size: clamp(20px,2.4vw,30px); line-height: 1.4; margin-top: 20px; color: var(--text-soft); }
+.hero .lead { font-size: 18px; } .hero-art { min-height: 440px; }
+.network { width: 100%; max-width: 470px; height: auto; overflow: visible; }
+.network-line { stroke: var(--accent); stroke-width: 1; opacity: .24; }
+.network-node { fill: var(--bg-card); stroke: var(--primary-light); stroke-width: 1.5; }
+.network-label { fill: var(--text-soft); font: 12px system-ui,sans-serif; text-anchor: middle; }
+.orbit { transform-origin: 240px 240px; animation: orbit 36s linear infinite; }
+.orbit.reverse { animation-direction: reverse; animation-duration: 48s; }
+.signal { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 80; animation: signal 5s linear infinite; fill: none; }
+.core { transform-origin: 240px 240px; animation: breathe 5s ease-in-out infinite; }
+.art-caption { position: absolute; bottom: 0; padding: 9px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; font-size: 12px; color: var(--muted); }
+.data-label { position: absolute; top: 12px; right: 0; font-size: 11px; letter-spacing: .14em; color: var(--muted); }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes signal { to { stroke-dashoffset: -172; } }
+@keyframes breathe { 50% { transform: scale(1.06); } }
+.reveal { opacity: 1; } .motion-ready .reveal.pending { opacity: 0; transform: translateY(24px); }
+.motion-ready .reveal { transition: opacity .65s ease, transform .65s ease; }
+.card { animation: none; } .card-body { height: 100%; } .project-card { display: flex; flex-direction: column; }
+.project-card .card-body { display: flex; flex-direction: column; flex: 1; }
+.project-card .card-actions { margin-top: auto; } .project-number { font-size: 12px; letter-spacing: .12em; color: var(--primary-light); margin-bottom: 16px; }
+.project-visual { height: 130px; padding: 24px; display: flex; align-items: end; gap: 10px; background: linear-gradient(130deg,rgba(139,92,246,.12),rgba(6,182,212,.12)); overflow: hidden; }
+.project-visual span { flex: 1; height: var(--h); border-radius: 6px 6px 0 0; background: var(--gradient-primary); opacity: .7; transform-origin: bottom; animation: chart 5s ease-in-out infinite; animation-delay: var(--d); }
+@keyframes chart { 50% { transform: scaleY(.75); opacity: 1; } }
+.metric { display: inline-flex; gap: 8px; align-items: baseline; margin-bottom: 18px; color: var(--text-soft); font-size: 13px; }
+.metric strong { font-size: 24px; color: var(--text); } .education { display: flex; flex-direction: column; justify-content: center; padding: 36px; }
+.education .degree { font-size: clamp(28px,3vw,40px); font-weight: 800; line-height: 1.2; margin: 20px 0; }
+.eyebrow { font-size: 12px; letter-spacing: .13em; text-transform: uppercase; color: var(--primary); }
+.card-text:last-child { margin-bottom: 0; } .section-header { margin-bottom: 48px; }
+.certificate-list { display: grid; gap: 14px; list-style: none; } .certificate-list a { display: block; padding: 20px; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; background: var(--bg-card); }
+.certificate-list a:hover { border-color: var(--primary); } .certificate-list small { display: block; color: var(--muted); }
+.contact-details { padding: 24px 0; } .contact-details p { margin-bottom: 20px; overflow-wrap: anywhere; }
+.form-note { font-size: 13px; color: var(--muted); margin-top: 16px; } .theme-toggle { min-height: 44px; }
+:root[data-theme="light"] { --primary: #7042d1; --muted: #536176; } .status-badge { animation: none; color: var(--text-soft); }
+.btn.primary { background: linear-gradient(135deg,#7042d1,#087e98); } .logo { color: white; }
+@media(min-width:1025px) { .hero-wrap { grid-template-columns: 1.2fr .8fr; gap: 32px; } }
+@media(max-width:1024px) { .hero .lead { margin-left: auto; margin-right: auto; } .cta-row,.tech-pills { justify-content: center; } .hero-art { max-width: 470px; width: 100%; margin: auto; } }
+@media(max-width:800px) { .menu-toggle { display: inline-flex; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); cursor: pointer; }
+.nav-menu { position: absolute; top: 72px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; padding: 24px; background: var(--bg-card); border-bottom: 1px solid var(--border); gap: 18px; }
+.nav-menu.open { display: flex; } .nav-menu a { padding: 6px 0; } .theme-toggle { align-self: flex-start; } .hero-art { min-height: 340px; } .hero-wrap { gap: 48px; } }
+@media(max-width:480px) { .theme-toggle span:not(.theme-dot) { display: inline; } .hero h1 { font-size: 39px; } .container { padding: 0 20px; } .status-badge { font-size: 12px; padding: 10px 12px; } .hero-art { min-height: 310px; } .data-label { top: -12px; } .education { padding: 24px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .motion-ready .reveal.pending { opacity: 1; transform: none; } }
+
+</style>
 </head>
 
 <body>
-  <!-- Navigation -->
-  <header class="nav" id="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="brand">
-        <div class="logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.5 5h3v4l3-4h3l-4.5 5.5L20 17h-3l-3.5-4.5V17h-3V7Z" />
-          </svg>
-        </div>
-        <span>Kathuskan</span>
-      </a>
-
-      <nav class="nav-menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-        <button id="themeToggle" class="theme-toggle">
-          <div class="theme-dot"></div>
-          <span id="themeLabel">Dark</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="bg-gradient"></div>
-    <div class="container">
-      <div class="hero-wrap">
-        <div>
-          <div class="status-badge">
-            <div class="pulse-dot"></div>
-            Open to internships & freelance
-          </div>
-
-          <h1>
-            Hi, I'm <span class="highlight">Kathuskan Thavarajah</span>
-            <div id="typeTarget" style="color: var(--accent);">Data Science Undergraduate</div>
-          </h1>
-
-          <p class="lead">
-            Aspiring Data Scientist | BSc Hons Data Science Student at Sabaragamuwa University | Graphic Designer |
-            Enthusiast for Learning and Exploration
-          </p>
-
-          <div class="cta-row">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn">Contact Me</a>
-          </div>
-
-          <div class="tech-pills">
-            <span class="pill">Python</span>
-            <span class="pill">Java</span>
-            <span class="pill">React</span>
-            <span class="pill">Node.js</span>
-            <span class="pill">MySQL</span>
-            <span class="pill">HTML/CSS</span>
-            <span class="pill">JavaScript</span>
-            <span class="pill">Adobe Photoshop</span>
-            <span class="pill">Adobe Illustrator</span>
-          </div>
-        </div>
-
-        <div class="hero-art">
-          <div class="floating-card">
-            <img src="IMG_7887.heic" alt="Developer workspace" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">About</div>
-        <h2 class="section-title">Who I Am</h2>
-        <p class="section-description">
-          Passionate about transforming data into insights and building meaningful digital experiences.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <img src="IMG_2196.jpg" alt="Profile" style="width: 100%; aspect-ratio: 1; object-fit: cover;" />
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">My Journey</h3>
-            <p class="card-text">
-              I am a second-year BSc (Hons) Data Science undergraduate at Sabaragamuwa University of Sri Lanka. My
-              journey into technology began during my school days, where I developed a strong curiosity for data-driven
-              problem-solving and creative digital solutions.
-              <br>
-              <br>
-              Over time, I have explored different areas in IT, with a growing passion for web development and graphic
-              design. I enjoy building modern, responsive, and user-friendly web applications while also designing
-              engaging visuals that enhance digital experiences.
-              <br>
-              <br>
-              My technical skill set includes HTML, CSS, JavaScript, React, Python, and MySQL, along with hands-on
-              experience in data science fundamentals. I also have professional experience as a Senior Graphic Designer
-              at Vikky Printers, which strengthened my creativity, attention to detail, and design sense.
-              <br>
-              <br>
-              Beyond academics and coding, I love problem-solving, experimenting with new tools, and blending creativity
-              with technology to bring ideas to life.
-              <br>
-              <br>
-              This portfolio reflects my skills, projects, and growth as both a data science learner and a creative
-              developer, showcasing my commitment to delivering high-quality, impactful digital solutions.
-            </p>
-
-            <p class="card-text">
-              Now I apply that design mindset to data science and development—combining
-              <strong>Python, Java, React, Node.js , MySQL</strong> with clean front-end experiences.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Skills</div>
-        <h2 class="section-title">What I Use</h2>
-        <p class="section-description">
-          A comprehensive toolkit for data science and web development.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <div>
-          <div class="grid" id="skillsGrid">
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Python</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="85"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Java</span>
-                <span class="skill-level">78%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="78"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">React</span>
-                <span class="skill-level">65%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="65"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-level">70%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="70"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">Node.js</span>
-                <span class="skill-level">55%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="55"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-header">
-                <span class="skill-name">HTML / CSS</span>
-                <span class="skill-level">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-level="90"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <p class="section-description">
-            I combine technical skills with design experience to build intuitive, user-focused interfaces and efficient
-            backend solutions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Projects</div>
-        <h2 class="section-title">What I've Built</h2>
-        <p class="section-description">
-          Selected projects that showcase my skills in data science, full-stack development, and design.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <div class="card-thumb">Pocket Manager</div>
-          <div class="card-body">
-            <h3 class="card-title">Pocket Manager</h3>
-            <p class="card-text">Personal finance tracker to manage income and expenses with intuitive charts and
-              reports.</p>
-            <div class="tech-tags">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">MySQL</span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Experience</div>
-        <h2 class="section-title">My Work History</h2>
-        <p class="section-description">
-          Professional experience and key roles I've undertaken.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Senior Graphic Designer</h3>
-            <p class="card-text">
-              Vikky Printers, Kovil Porativu — 2 Years<br>
-              Designed high-quality print and digital graphics, collaborating with clients to deliver impactful visuals.
-            </p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Data Science Undergraduate</h3>
-            <p class="card-text">
-              Sabaragamuwa University of Sri Lanka — Current<br>
-              Focused on developing data-driven applications and building skills in Python, Java, React, MySQL, and
-              front-end
-              technologies.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-subtitle">Contact</div>
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-description">
-          I'm available for internships, freelance work, and collaborations. Send me a message and I’ll respond
-          promptly.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <div>
-          <form class="contact-form" action="mailto:Kathus2003@gmail.com" method="POST" enctype="text/plain">
-            <div class="form-group">
-              <label class="form-label" for="name">Name</label>
-              <input type="text" id="name" name="name" class="form-input" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email</label>
-              <input type="email" id="email" name="email" class="form-input" required />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="message">Message</label>
-              <textarea id="message" name="message" class="form-textarea" required></textarea>
-            </div>
-            <button type="submit" class="btn primary">Send Message</button>
-          </form>
-        </div>
-
-        <div>
-          <p class="section-description">
-            You can also reach me via email: <strong>Kathus2003@gmail.com</strong><br>
-            Or connect on LinkedIn: <strong><a href="https://www.linkedin.com/in/kathuskan-thavarajah"
-                target="_blank">linkedin.com/in/kathuskan-thavarajah</a></strong><br>
-            Phone: <strong>075 8114 531</strong>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>© 2025 Kathuskan Thavarajah. All rights reserved.</div>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/kathuskan-thavarajah" class="social-link" target="_blank"
-            rel="noopener noreferrer">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/kathuskan" class="social-link" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.instagram.com/vkathus" class="social-link" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-
-
-
-
-  <!-- JavaScript -->
-  <script>
-    // Theme Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    const themeLabel = document.getElementById('themeLabel');
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    themeLabel.textContent = currentTheme.charAt(0).toUpperCase() + currentTheme.slice(1);
-
-    themeToggle.addEventListener('click', () => {
-      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      themeLabel.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
-    });
-
-    // Skill Progress Animation
-    const skills = document.querySelectorAll('.skill-progress');
-    skills.forEach(skill => {
-      const level = skill.getAttribute('data-level');
-      skill.style.width = level + '%';
-    });
-
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    });
-
-    // Simple typing effect
-    const typeTarget = document.getElementById('typeTarget');
-    const typeText = typeTarget.textContent;
-    let index = 0;
-    typeTarget.textContent = '';
-    function type() {
-      if (index < typeText.length) {
-        typeTarget.textContent += typeText.charAt(index);
-        index++;
-        setTimeout(type, 80);
-      }
-    }
-    type();
-  </script>
-</body>
-
-</html>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="nav" id="navbar"><div class="nav-inner"><a href="#home" class="brand"><span class="logo" aria-hidden="true">K</span><span>Kathuskan</span></a>
+<button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false">Menu</button>
+<nav class="nav-menu" id="navMenu" aria-label="Main navigation"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a><button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-dot" aria-hidden="true"></span><span id="themeLabel">Dark mode</span></button></nav></div></header>
+<main id="main">
+<section id="home" class="hero"><div class="bg-gradient" aria-hidden="true"></div><div class="container"><div class="hero-wrap"><div>
+<div class="status-badge"><span class="pulse-dot" aria-hidden="true"></span>Seeking a Data Science Internship</div>
+<h1>Hi, I'm <span class="highlight">Kathuskan Thavarajah</span></h1><p class="hero-role">Data Science Undergraduate &amp; Developer</p>
+<p class="lead">I turn complex data into predictive models and practical applications. Studying Data Science at Sabaragamuwa University of Sri Lanka, with hands-on projects in machine learning, NLP, and full-stack development.</p>
+<div class="cta-row"><a href="#projects" class="btn primary">Explore Projects ↗</a><a href="#contact" class="btn">Let's Connect</a></div>
+<div class="tech-pills"><span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">SQL</span><span class="pill">FastAPI</span><span class="pill">React</span></div></div>
+<div class="hero-art"><span class="data-label">DATA → MODELS → APPLICATIONS</span>
+<svg class="network" viewBox="0 0 480 480" role="img" aria-label="Animated network connecting data, analysis, machine learning, and applications">
+<defs><linearGradient id="coreGradient" x2="1" y2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+<g fill="none" stroke="currentColor" opacity=".1"><circle cx="240" cy="240" r="185"/><circle cx="240" cy="240" r="130"/><circle cx="240" cy="240" r="85"/></g>
+<g class="network-line"><path d="M240 240L100 115M240 240L385 130M240 240L385 345M240 240L105 365M100 115L385 130L385 345L105 365Z" fill="none"/></g>
+<path class="signal" d="M100 115L240 240L385 130M105 365L240 240L385 345"/>
+<g class="orbit"><circle cx="240" cy="55" r="5" fill="#a78bfa"/><circle cx="240" cy="425" r="4" fill="#22d3ee"/></g><g class="orbit reverse"><circle cx="110" cy="240" r="4" fill="#22d3ee"/></g>
+<g class="core"><rect x="188" y="188" width="104" height="104" rx="30" fill="url(#coreGradient)"/><text x="240" y="251" text-anchor="middle" fill="white" font-family="system-ui,sans-serif" font-size="32" font-weight="800">KT</text></g>
+<g><circle class="network-node" cx="100" cy="115" r="39"/><text class="network-label" x="100" y="119">DATA</text><circle class="network-node" cx="385" cy="130" r="39"/><text class="network-label" x="385" y="134">ANALYSIS</text><circle class="network-node" cx="385" cy="345" r="39"/><text class="network-label" x="385" y="349">ML / NLP</text><circle class="network-node" cx="105" cy="365" r="39"/><text class="network-label" x="105" y="369">APPS</text></g></svg><span class="art-caption">Curiosity, creativity, and code.</span></div></div></div></section>
+<section id="about"><div class="container"><div class="section-header reveal"><div class="section-subtitle">About me</div><h2 class="section-title">A curious mind. A practical approach.</h2><p class="section-description">Combining analytical thinking with a creative background.</p></div><div class="grid grid-2"><div class="card education reveal"><span class="eyebrow">2024–present · Education</span><p class="degree">BSc (Hons)<br>Data Science</p><p class="card-text">Sabaragamuwa University of Sri Lanka</p><p class="card-text">Coursework: Data Structures, Data Pre-Processing, Statistics, and Software Development.</p></div><div class="card reveal"><div class="card-body"><h3 class="card-title">From exploration to implementation</h3><p class="card-text">I enjoy working across the data science workflow: exploring datasets, engineering features, evaluating models, and connecting predictions to useful interfaces.</p><p class="card-text">My projects include a used-car valuation engine for Sri Lanka, an NLP book-rating predictor, and full-stack web applications. I'm interested in machine learning, natural language processing, data engineering, and business intelligence.</p><p class="card-text">My background in graphic design brings attention to detail and visual communication to my technical work. I'm seeking a Data Science internship where I can contribute, collaborate, and keep learning.</p></div></div></div></div></section><section id="skills"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Skills</div><h2 class="section-title">My toolkit</h2><p class="section-description">Technologies I use to explore data and build applications.</p></div><div class="grid grid-3"><div class="skill-item reveal"><h3 class="card-title">Programming</h3><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">Java</span><span class="tech-tag">JavaScript</span><span class="tech-tag">SQL</span></div></div><div class="skill-item reveal"><h3 class="card-title">Data & visualization</h3><div class="tech-tags"><span class="tech-tag">Pandas</span><span class="tech-tag">NumPy</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">Seaborn</span><span class="tech-tag">Power BI</span></div></div><div class="skill-item reveal"><h3 class="card-title">Machine learning & NLP</h3><div class="tech-tags"><span class="tech-tag">Scikit-learn</span><span class="tech-tag">XGBoost</span><span class="tech-tag">Random Forest</span><span class="tech-tag">TF-IDF</span><span class="tech-tag">VADER</span></div></div><div class="skill-item reveal"><h3 class="card-title">Web development</h3><div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">Laravel</span></div></div><div class="skill-item reveal"><h3 class="card-title">Databases & tools</h3><div class="tech-tags"><span class="tech-tag">MySQL</span><span class="tech-tag">MongoDB</span><span class="tech-tag">Git</span><span class="tech-tag">GitHub</span></div></div><div class="skill-item reveal"><h3 class="card-title">Creative tools</h3><div class="tech-tags"><span class="tech-tag">Adobe Photoshop</span><span class="tech-tag">Adobe Illustrator</span><span class="tech-tag">Canva</span></div></div></div></div></section><section id="projects"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Selected projects</div><h2 class="section-title">What I've built</h2><p class="section-description">Machine learning experiments and applications, from raw data to usable products.</p></div><div class="grid grid-2"><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">01 · MACHINE LEARNING</p><h3 class="card-title">Used Car Valuation Engine</h3><p class="card-text">A full-stack pricing platform for the Sri Lankan vehicle market. Compared six predictive models and deployed a Random Forest regressor with validated inputs and real-time predictions.</p><p class="metric"><strong>0.88</strong> R² · MAE: LKR 384,000</p><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">React</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">XGBoost</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskanthavarajah/used_car_valuation_project" target="_blank" rel="noopener noreferrer" aria-label="View Used Car Valuation Engine on GitHub">View on GitHub ↗</a></div></div></article><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">02 · NATURAL LANGUAGE PROCESSING</p><h3 class="card-title">Book Rating Predictor</h3><p class="card-text">An NLP pipeline predicting average book ratings from marketing blurbs. Combined TF-IDF text features with VADER sentiment scores and trained a Random Forest regressor.</p><p class="metric"><strong>0.17</strong> MAE in stars · 4,700+ entries</p><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">TF-IDF</span><span class="tech-tag">VADER</span><span class="tech-tag">Random Forest</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskan/mini_nlp_project" target="_blank" rel="noopener noreferrer" aria-label="View Book Rating Predictor on GitHub">View on GitHub ↗</a></div></div></article><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">03 · FULL-STACK DEVELOPMENT</p><h3 class="card-title">Shelv Marketplace</h3><p class="card-text">A marketplace for buying and renting books, with Stripe Checkout, Cloudinary image optimization, and targeted MongoDB queries.</p><div class="tech-tags"><span class="tech-tag">MongoDB</span><span class="tech-tag">Express.js</span><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Stripe</span><span class="tech-tag">Cloudinary</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskanthavarajah/shelv" target="_blank" rel="noopener noreferrer" aria-label="View Shelv Marketplace on GitHub">View on GitHub ↗</a></div></div></article><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">04 · TEAM PROJECT</p><h3 class="card-title">Dream Stack</h3><p class="card-text">Contributed frontend components to a collaborative goal-tracking platform. Integrated Laravel APIs and real-time push notifications to help users monitor personal milestones.</p><div class="tech-tags"><span class="tech-tag">JavaScript</span><span class="tech-tag">CSS</span><span class="tech-tag">Laravel</span><span class="tech-tag">REST APIs</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskan/dream-stack" target="_blank" rel="noopener noreferrer" aria-label="View Dream Stack on GitHub">View on GitHub ↗</a></div></div></article></div><p class="form-note">Model metrics are from the project evaluations reported in my CV.</p></div></section><section id="experience"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Experience</div><h2 class="section-title">Creativity & community</h2><p class="section-description">Design experience, leadership, and teamwork beyond the classroom.</p></div><div class="grid grid-2"><article class="card reveal"><div class="card-body"><h3 class="card-title">Senior Graphic Designer</h3><p class="eyebrow">Vikky Printers · Kovil Porativu</p><p class="card-text">Two years of experience creating print and digital graphics and collaborating with clients.</p></div></article><article class="card reveal"><div class="card-body"><h3 class="card-title">Media Team Coordinator</h3><p class="eyebrow">Uthayatharagai Arts and Sports Club</p><p class="card-text">Coordinating content creation, event coverage, and social media activities.</p></div></article><article class="card reveal"><div class="card-body"><h3 class="card-title">Graphic Design Volunteer</h3><p class="eyebrow">IEEE Computer Society Chapter & Sabra Cricket Team</p><p class="card-text">Creating visual content and promotional materials for workshops, events, and university cricket.</p></div></article><article class="card reveal"><div class="card-body"><h3 class="card-title">Community involvement</h3><p class="eyebrow">Zero Plastic Movement · Leo Club · Rotaract Club (SUSL)</p><p class="card-text">Contributing to community service, environmental awareness, and social projects.</p></div></article></div></div></section><section id="certifications"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Certifications</div><h2 class="section-title">Always learning</h2><p class="section-description">Further learning in AI, analytics, and machine learning.</p></div><ul class="certificate-list"><li class="reveal"><a href="https://academy.amd.com/certs/31042/157CE4AB9E9D426BB7BDE9C315DDB482166281.pdf" target="_blank" rel="noopener noreferrer">AI Agents 101: Building AI Agents with MCP and Open-Source Inference ↗<small>AMD AI Academy</small></a></li><li class="reveal"><a href="https://coursera.org/share/84088f968c1c682bffb662e737ae9dec" target="_blank" rel="noopener noreferrer">Foundations of Business Intelligence ↗<small>Coursera</small></a></li><li class="reveal"><a href="https://coursera.org/share/5d7f0e013cdb7a3101362e989c4ca58b" target="_blank" rel="noopener noreferrer">Foundations: Data, Data, Everywhere ↗<small>Coursera</small></a></li><li class="reveal"><a href="https://coursera.org/share/a8ef80192fab2e739a6072afc7682a08" target="_blank" rel="noopener noreferrer">Diabetes Disease Detection with XG-Boost and Neural Networks ↗<small>Coursera</small></a></li></ul></div></section><section id="contact"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Get in touch</div><h2 class="section-title">Let's work with data</h2><p class="section-description">Seeking a Data Science internship. I'd love to hear about opportunities to contribute and learn.</p></div><div class="grid grid-2"><form class="contact-form reveal" id="contactForm" action="mailto:TKathuskan@gmail.com" method="get"><div class="form-group"><label class="form-label" for="name">Name</label><input class="form-input" id="name" name="name" autocomplete="name" required maxlength="120"></div><div class="form-group"><label class="form-label" for="email">Email</label><input class="form-input" id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div><div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-textarea" id="message" name="message" required maxlength="3000"></textarea></div><button class="btn primary" type="submit">Open Email Draft ↗</button><p class="form-note">Opens your email app with a draft. Review and send it there, or email me directly.</p><p id="formStatus" class="form-note" role="status"></p></form><div class="contact-details reveal"><h3 class="card-title">Start a conversation</h3><p><a href="mailto:TKathuskan@gmail.com">TKathuskan@gmail.com</a></p><p><a href="https://www.linkedin.com/in/kathuskan-thavarajah/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></p><p><a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></p><p><a href="tel:+94758114531">+94 75 811 4531</a></p><p class="card-text">Interested in machine learning, NLP, data analysis, and building useful applications.</p></div></div></div></section></main><footer><div class="container"><div class="footer-content"><div>© <span id="year">2026</span> Kathuskan Thavarajah.</div><a href="#home">Back to top ↑</a></div></div></footer>
+<script>
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+function applyTheme(theme) {
+ root.dataset.theme = theme;
+ const next = theme === 'dark' ? 'light' : 'dark';
+ document.getElementById('themeLabel').textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
+ themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+ document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0a0d14' : '#f8fafc';
+}
+let savedTheme;
+try { savedTheme = localStorage.getItem('theme'); } catch (_) {}
+applyTheme(['light','dark'].includes(savedTheme) ? savedTheme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+themeToggle.addEventListener('click', () => {
+ const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+ applyTheme(theme); try { localStorage.setItem('theme',theme); } catch (_) {}
+});
+const menuToggle = document.getElementById('menuToggle');
+const menu = document.getElementById('navMenu');
+function closeMenu() { menu.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
+menuToggle.addEventListener('click', () => { const open = menu.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); });
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { closeMenu(); menuToggle.focus(); } });
+document.addEventListener('click', e => { if (!document.getElementById('navbar').contains(e.target)) closeMenu(); });
+const navbar = document.getElementById('navbar');
+function updateNav() { navbar.classList.toggle('scrolled', scrollY > 50); }
+window.addEventListener('scroll', updateNav, {passive:true}); updateNav();
+const motion = matchMedia('(prefers-reduced-motion: reduce)');
+if (!motion.matches && 'IntersectionObserver' in window) {
+ root.classList.add('motion-ready');
+ const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+  if (entry.isIntersecting) { entry.target.classList.remove('pending'); observer.unobserve(entry.target); }
+ }), {threshold:0.08});
+ document.querySelectorAll('.reveal').forEach(el => { el.classList.add('pending'); observer.observe(el); });
+}
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit', e => {
+ e.preventDefault();
+ const name = document.getElementById('name').value.trim();
+ const email = document.getElementById('email').value.trim();
+ const message = document.getElementById('message').value.trim();
+ if (!name || !message) { document.getElementById('formStatus').textContent = 'Please enter your name and message.'; return; }
+ const subject = 'Portfolio enquiry from ' + name;
+ const body = message + '\n\nFrom: ' + name + '\nEmail: ' + email;
+ window.location.href = 'mailto:TKathuskan@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+ document.getElementById('formStatus').textContent = 'Continue in your email app to send. If it did not open, email TKathuskan@gmail.com directly.';
+});
+</script></body></html>
