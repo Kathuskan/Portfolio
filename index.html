@@ -1,1006 +1,1999 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" class="dark" data-theme="dark">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kathuskan Thavarajah | Data Science Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kathuskan Thavarajah | Data Science & Full-Stack Portfolio</title>
   <meta name="description"
-    content="Kathuskan Thavarajah — Data Science undergraduate seeking an internship. Explore machine learning, NLP, and full-stack projects." />
+    content="Kathuskan Thavarajah — Data Science Undergraduate at Sabaragamuwa University of Sri Lanka & Full-Stack Developer seeking a Data Science Internship. Explore ML, NLP, Databricks, Power BI, and Full-Stack projects." />
   <meta name="author" content="Kathuskan Thavarajah" />
-  <meta name="theme-color" content="#0f172a" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="theme-color" content="#080b12" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#080b12',
+            slateCard: '#111622',
+            slateSoft: '#161d2d',
+            violetGlow: '#8b5cf6',
+            cyanGlow: '#06b6d4',
+            emeraldGlow: '#10b981',
+          },
+          boxShadow: {
+            glow: '0 0 35px -5px rgba(139, 92, 246, 0.35)',
+            'glow-cyan': '0 0 35px -5px rgba(6, 182, 212, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <style>
-    /* Enhanced Design System */
+    /* Custom Theme & Animations */
     :root {
-      --bg: #0a0d14;
-      --bg-soft: #1a1f2e;
-      --bg-card: #161b26;
-      --text: #ffffff;
-      --text-soft: #e2e8f0;
-      --muted: #94a3b8;
-      --border: #2d3748;
-      --border-light: #4a5568;
-      --primary: #8b5cf6;
-      --primary-light: #a78bfa;
-      --accent: #06b6d4;
-      --accent-light: #22d3ee;
-      --success: #10b981;
-      --error: #ef4444;
-      --warning: #f59e0b;
-      --gradient-primary: linear-gradient(135deg, #8b5cf6, #06b6d4);
-      --gradient-card: linear-gradient(145deg, #1a1f2e, #161b26);
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
-      --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.25);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.4);
-      --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.3);
-      --radius: 20px;
-      --radius-sm: 12px;
-      --maxw: 1400px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --bg-primary: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.88);
+      --bg-elevated: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: rgba(148, 163, 184, 0.28);
     }
 
-    /* Light Theme */
-    :root[data-theme="light"] {
-      --bg: #f8fafc;
-      --bg-soft: #ffffff;
-      --bg-card: #ffffff;
-      --text: #1e293b;
-      --text-soft: #334155;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --border-light: #cbd5e1;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.12);
-      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
-      --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.2);
-      --gradient-card: linear-gradient(145deg, #ffffff, #f1f5f9);
-    }
-
-    /* Enhanced Base Styles */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    html.dark {
+      --bg-primary: #080b12;
+      --bg-card: rgba(17, 22, 34, 0.82);
+      --bg-elevated: #161d2f;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(148, 163, 184, 0.14);
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 88px;
     }
 
     body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Smooth scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
+    /* Ambient Mesh Gradient Background */
+    .ambient-bg {
+      background-image:
+        radial-gradient(at 15% 15%, rgba(139, 92, 246, 0.14) 0px, transparent 45%),
+        radial-gradient(at 85% 20%, rgba(6, 182, 212, 0.12) 0px, transparent 45%),
+        radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
     }
 
-    ::-webkit-scrollbar-track {
-      background: var(--bg-soft);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary);
-      border-radius: 4px;
-    }
-
-    /* Enhanced Navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      backdrop-filter: saturate(180%) blur(20px);
-      background: color-mix(in srgb, var(--bg), transparent 20%);
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-
-    .nav.scrolled {
-      background: color-mix(in srgb, var(--bg), transparent 5%);
-      box-shadow: var(--shadow-md);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: -0.025em;
-      transition: var(--transition);
-    }
-
-    .brand:hover {
-      transform: translateY(-2px);
-    }
-
-    .logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--gradient-primary);
-      display: grid;
-      place-items: center;
-      box-shadow: var(--shadow-glow);
-      transition: var(--transition);
-    }
-
-    .logo:hover {
-      transform: scale(1.1) rotate(5deg);
-      box-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .nav-menu a {
-      font-weight: 500;
-      opacity: 0.9;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-menu a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient-primary);
-      transition: width 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-      opacity: 1;
-      color: var(--primary);
-    }
-
-    .nav-menu a:hover::after {
-      width: 100%;
-    }
-
-    .theme-toggle {
-      border: 1px solid var(--border);
+    /* Glassmorphic Card Surface */
+    .bento-card {
       background: var(--bg-card);
-      padding: 10px 16px;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: var(--transition);
-      font-weight: 500;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease, box-shadow 0.28s ease;
     }
 
-    .theme-toggle:hover {
-      background: var(--bg-soft);
-      border-color: var(--primary);
-      transform: scale(1.05);
+    .bento-card:hover {
+      border-color: rgba(139, 92, 246, 0.45);
+      box-shadow: 0 16px 40px -15px rgba(0, 0, 0, 0.35), 0 0 25px -5px rgba(139, 92, 246, 0.18);
     }
 
-    .theme-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      transition: var(--transition);
+    .project-card-hover:hover {
+      transform: translateY(-5px);
     }
 
-    /* Enhanced Container */
-    .container {
-      width: 100%;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 24px;
+    /* SVG Network Animations */
+    .orbit {
+      transform-origin: 240px 240px;
+      animation: spinOrbit 34s linear infinite;
     }
 
-    section {
-      padding: 120px 0;
-      position: relative;
+    .orbit.reverse {
+      animation-direction: reverse;
+      animation-duration: 46s;
     }
 
-    /* Enhanced Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 140px 0 80px;
-      position: relative;
-      overflow: hidden;
+    .signal-path {
+      stroke-dasharray: 8 76;
+      animation: pulseSignal 4.5s linear infinite;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(139, 92, 246, 0.1), transparent 70%);
-      transform: translateX(-50%);
-      z-index: -1;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 60px;
-      align-items: center;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid var(--border);
-      padding: 12px 20px;
-      border-radius: 50px;
-      color: var(--muted);
-      background: var(--bg-card);
-      backdrop-filter: blur(10px);
-      animation: pulse-badge 2s ease-in-out infinite;
-    }
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      animation: pulse 2s infinite;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 64px);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin: 24px 0;
-      background: linear-gradient(135deg, var(--text), var(--muted));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero .highlight {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero .lead {
-      font-size: 20px;
-      color: var(--text-soft);
-      margin-bottom: 32px;
-      max-width: 600px;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      color: var(--text);
-      padding: 14px 24px;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: var(--transition);
-      text-decoration: none;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary);
-    }
-
-    .btn.primary {
-      border: none;
-      background: var(--gradient-primary);
-      color: white;
-      box-shadow: var(--shadow-glow);
-    }
-
-    .btn.primary:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
-    }
-
-    .tech-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 50px;
-      border: 1px solid var(--border);
-      background: var(--bg-card);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      transition: var(--transition);
-    }
-
-    .pill:hover {
-      background: var(--bg-soft);
-      color: var(--text);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* Enhanced Hero Art */
-    .hero-art {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .floating-card {
-      position: relative;
-      width: 320px;
-      height: 320px;
-      border-radius: var(--radius);
-      background: var(--gradient-card);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      transform: rotate(6deg);
-      transition: var(--transition);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .floating-card:hover {
-      transform: rotate(0deg) scale(1.05);
-    }
-
-    .floating-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-    }
-
-    .bg-gradient {
-      position: absolute;
-      inset: -100px;
-      background:
-        radial-gradient(600px circle at 70% 30%, rgba(139, 92, 246, 0.3), transparent 50%),
-        radial-gradient(400px circle at 30% 70%, rgba(6, 182, 212, 0.2), transparent 50%);
-      filter: blur(40px);
-      z-index: -2;
-      animation: rotate 20s linear infinite;
-    }
-
-    /* Enhanced Sections */
-    .section-header {
-      text-align: center;
-      margin-bottom: 80px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .section-subtitle {
-      color: var(--primary);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .section-description {
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Enhanced Cards */
-    .card {
-      background: var(--gradient-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-      transition: var(--transition);
-      animation: fadeInUp 0.8s ease-out;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--gradient-primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card-thumb {
-      aspect-ratio: 16/9;
-      background: var(--gradient-primary);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-weight: 600;
-      font-size: 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-thumb::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.2);
-      transition: var(--transition);
-    }
-
-    .card:hover .card-thumb::before {
-      background: rgba(0, 0, 0, 0.1);
-    }
-
-    .card-body {
-      padding: 24px;
-    }
-
-    .card-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .card-text {
-      color: var(--muted);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .tech-tag {
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 12px;
-      color: var(--muted);
-      background: var(--bg-soft);
-      font-weight: 500;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* Enhanced Grids */
-    .grid {
-      display: grid;
-      gap: 32px;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Enhanced Skills */
-    .skills-section {
-      background: var(--bg-soft);
-    }
-
-    .skill-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 24px;
-      transition: var(--transition);
-    }
-
-    .skill-item:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary);
-    }
-
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .skill-name {
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    .skill-level {
-      font-size: 14px;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .skill-bar {
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .skill-progress {
-      height: 100%;
-      background: var(--gradient-primary);
-      width: 0;
-      transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-
-    .skill-progress::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 20px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
-      animation: shimmer 2s ease-in-out infinite;
-    }
-
-    /* Enhanced Contact Form */
-    .contact-form {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--text-soft);
-    }
-
-    .form-input,
-    .form-textarea {
-      width: 100%;
-      padding: 16px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: var(--bg-soft);
-      color: var(--text);
-      font-family: inherit;
-      font-size: 14px;
-      transition: var(--transition);
-      outline: none;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    /* Enhanced Footer */
-    footer {
-      background: var(--bg-soft);
-      border-top: 1px solid var(--border);
-      padding: 60px 0 40px;
-    }
-
-    .footer-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 16px;
-    }
-
-    .social-link {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      background: var(--bg-card);
-      transition: var(--transition);
-      color: var(--muted);
-    }
-
-    .social-link:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(6deg);
-      }
-
-      50% {
-        transform: translateY(-20px) rotate(6deg);
-      }
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 var(--success);
-      }
-
-      70% {
-        box-shadow: 0 0 0 10px transparent;
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 transparent;
-      }
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-
+    @keyframes spinOrbit {
       to {
         transform: rotate(360deg);
       }
     }
 
-    @keyframes shimmer {
-
-      0%,
-      100% {
-        opacity: 0;
-      }
-
-      50% {
-        opacity: 1;
+    @keyframes pulseSignal {
+      to {
+        stroke-dashoffset: -168;
       }
     }
 
-    @keyframes pulse-badge {
-
-      0%,
-      100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.02);
-      }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
     }
 
-    /* Enhanced Responsive Design */
-    @media (max-width: 1024px) {
-      .hero-wrap {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      section {
-        padding: 80px 0;
-      }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
     }
 
-    @media (max-width: 768px) {
-      .nav-inner {
-        padding: 0 20px;
-      }
-
-      .nav-menu {
-        gap: 20px;
-      }
-
-      .nav-menu a {
-        font-size: 14px;
-      }
-
-      .container {
-        padding: 0 20px;
-      }
-
-      .hero {
-        padding: 120px 0 60px;
-      }
-
-      .section-header {
-        margin-bottom: 60px;
-      }
-
-      .grid-2,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .floating-card {
-        width: 280px;
-        height: 280px;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .cta-row {
-        justify-content: center;
-      }
-
-      .footer-content {
-        justify-content: center;
-        text-align: center;
-      }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+      border-radius: 9999px;
     }
 
-    @media (max-width: 480px) {
-      .theme-toggle span:not(.theme-dot) {
-        display: none;
-      }
-
-      .btn {
-        padding: 12px 20px;
-        font-size: 13px;
-      }
-
-      .card-body {
-        padding: 20px;
-      }
-
-      .contact-form {
-        padding: 24px;
-      }
+    /* Subtle Grid Overlay */
+    .grid-pattern {
+      background-size: 36px 36px;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
     }
-
-    /* Print Styles */
-    @media print {
-
-      .nav,
-      .theme-toggle,
-      .btn,
-      .social-links {
-        display: none !important;
-      }
-
-      body {
-        background: white !important;
-        color: black !important;
-      }
-
-      .card {
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
-      }
-    }
-  
-/* Responsive, accessible refinements */
-a { color: inherit; } button,input,textarea { font: inherit; } button { color: var(--text); }
-a:focus-visible,button:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
-.nav a { text-decoration: none; } .nav-menu { gap: 24px; } .menu-toggle { display: none; }
-.skip-link { position: fixed; top: -80px; left: 16px; z-index: 2000; padding: 12px; background: var(--bg-card); }
-.skip-link:focus { top: 12px; } .hero { isolation: isolate; } .hero-wrap > * { min-width: 0; }
-.hero h1 { font-size: clamp(38px,5vw,68px); } .hero-role { display: block; font-size: clamp(20px,2.4vw,30px); line-height: 1.4; margin-top: 20px; color: var(--text-soft); }
-.hero .lead { font-size: 18px; } .hero-art { min-height: 440px; }
-.network { width: 100%; max-width: 470px; height: auto; overflow: visible; }
-.network-line { stroke: var(--accent); stroke-width: 1; opacity: .24; }
-.network-node { fill: var(--bg-card); stroke: var(--primary-light); stroke-width: 1.5; }
-.network-label { fill: var(--text-soft); font: 12px system-ui,sans-serif; text-anchor: middle; }
-.orbit { transform-origin: 240px 240px; animation: orbit 36s linear infinite; }
-.orbit.reverse { animation-direction: reverse; animation-duration: 48s; }
-.signal { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 80; animation: signal 5s linear infinite; fill: none; }
-.core { transform-origin: 240px 240px; animation: breathe 5s ease-in-out infinite; }
-.art-caption { position: absolute; bottom: 0; padding: 9px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; font-size: 12px; color: var(--muted); }
-.data-label { position: absolute; top: 12px; right: 0; font-size: 11px; letter-spacing: .14em; color: var(--muted); }
-@keyframes orbit { to { transform: rotate(360deg); } }
-@keyframes signal { to { stroke-dashoffset: -172; } }
-@keyframes breathe { 50% { transform: scale(1.06); } }
-.reveal { opacity: 1; } .motion-ready .reveal.pending { opacity: 0; transform: translateY(24px); }
-.motion-ready .reveal { transition: opacity .65s ease, transform .65s ease; }
-.card { animation: none; } .card-body { height: 100%; } .project-card { display: flex; flex-direction: column; }
-.project-card .card-body { display: flex; flex-direction: column; flex: 1; }
-.project-card .card-actions { margin-top: auto; } .project-number { font-size: 12px; letter-spacing: .12em; color: var(--primary-light); margin-bottom: 16px; }
-.project-visual { height: 130px; padding: 24px; display: flex; align-items: end; gap: 10px; background: linear-gradient(130deg,rgba(139,92,246,.12),rgba(6,182,212,.12)); overflow: hidden; }
-.project-visual span { flex: 1; height: var(--h); border-radius: 6px 6px 0 0; background: var(--gradient-primary); opacity: .7; transform-origin: bottom; animation: chart 5s ease-in-out infinite; animation-delay: var(--d); }
-@keyframes chart { 50% { transform: scaleY(.75); opacity: 1; } }
-.metric { display: inline-flex; gap: 8px; align-items: baseline; margin-bottom: 18px; color: var(--text-soft); font-size: 13px; }
-.metric strong { font-size: 24px; color: var(--text); } .education { display: flex; flex-direction: column; justify-content: center; padding: 36px; }
-.education .degree { font-size: clamp(28px,3vw,40px); font-weight: 800; line-height: 1.2; margin: 20px 0; }
-.eyebrow { font-size: 12px; letter-spacing: .13em; text-transform: uppercase; color: var(--primary); }
-.card-text:last-child { margin-bottom: 0; } .section-header { margin-bottom: 48px; }
-.certificate-list { display: grid; gap: 14px; list-style: none; } .certificate-list a { display: block; padding: 20px; border: 1px solid var(--border); border-radius: 12px; text-decoration: none; background: var(--bg-card); }
-.certificate-list a:hover { border-color: var(--primary); } .certificate-list small { display: block; color: var(--muted); }
-.contact-details { padding: 24px 0; } .contact-details p { margin-bottom: 20px; overflow-wrap: anywhere; }
-.form-note { font-size: 13px; color: var(--muted); margin-top: 16px; } .theme-toggle { min-height: 44px; }
-:root[data-theme="light"] { --primary: #7042d1; --muted: #536176; } .status-badge { animation: none; color: var(--text-soft); }
-.btn.primary { background: linear-gradient(135deg,#7042d1,#087e98); } .logo { color: white; }
-@media(min-width:1025px) { .hero-wrap { grid-template-columns: 1.2fr .8fr; gap: 32px; } }
-@media(max-width:1024px) { .hero .lead { margin-left: auto; margin-right: auto; } .cta-row,.tech-pills { justify-content: center; } .hero-art { max-width: 470px; width: 100%; margin: auto; } }
-@media(max-width:800px) { .menu-toggle { display: inline-flex; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); cursor: pointer; }
-.nav-menu { position: absolute; top: 72px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; padding: 24px; background: var(--bg-card); border-bottom: 1px solid var(--border); gap: 18px; }
-.nav-menu.open { display: flex; } .nav-menu a { padding: 6px 0; } .theme-toggle { align-self: flex-start; } .hero-art { min-height: 340px; } .hero-wrap { gap: 48px; } }
-@media(max-width:480px) { .theme-toggle span:not(.theme-dot) { display: inline; } .hero h1 { font-size: 39px; } .container { padding: 0 20px; } .status-badge { font-size: 12px; padding: 10px 12px; } .hero-art { min-height: 310px; } .data-label { top: -12px; } .education { padding: 24px; } }
-@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } .motion-ready .reveal.pending { opacity: 1; transform: none; } }
-
-
-/* Portrait sits inside the animated data network. */
-.portrait-frame { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 44%; max-width: 210px; aspect-ratio: 4 / 5; padding: 3px; border-radius: 28px; background: var(--gradient-primary); box-shadow: 0 16px 48px rgba(0,0,0,.25), 0 0 30px rgba(139,92,246,.2); overflow: hidden; }
-.hero-portrait { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 48%; border-radius: 25px; }
-</style>
+  </style>
 </head>
 
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="nav" id="navbar"><div class="nav-inner"><a href="#home" class="brand"><span class="logo" aria-hidden="true">K</span><span>Kathuskan</span></a>
-<button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false">Menu</button>
-<nav class="nav-menu" id="navMenu" aria-label="Main navigation"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#contact">Contact</a><button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark theme"><span class="theme-dot" aria-hidden="true"></span><span id="themeLabel">Dark mode</span></button></nav></div></header>
-<main id="main">
-<section id="home" class="hero"><div class="bg-gradient" aria-hidden="true"></div><div class="container"><div class="hero-wrap"><div>
-<div class="status-badge"><span class="pulse-dot" aria-hidden="true"></span>Seeking a Data Science Internship</div>
-<h1>Hi, I'm <span class="highlight">Kathuskan Thavarajah</span></h1><p class="hero-role">Data Science Undergraduate &amp; Developer</p>
-<p class="lead">I turn complex data into predictive models and practical applications. Studying Data Science at Sabaragamuwa University of Sri Lanka, with hands-on projects in machine learning, NLP, and full-stack development.</p>
-<div class="cta-row"><a href="#projects" class="btn primary">Explore Projects ↗</a><a href="#contact" class="btn">Let's Connect</a></div>
-<div class="tech-pills"><span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">SQL</span><span class="pill">FastAPI</span><span class="pill">React</span></div></div>
-<div class="hero-art"><span class="data-label">DATA → MODELS → APPLICATIONS</span>
-<svg class="network" viewBox="0 0 480 480" role="img" aria-label="Animated network connecting data, analysis, machine learning, and applications">
-<defs><linearGradient id="coreGradient" x2="1" y2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
-<g fill="none" stroke="currentColor" opacity=".1"><circle cx="240" cy="240" r="185"/><circle cx="240" cy="240" r="130"/><circle cx="240" cy="240" r="85"/></g>
-<g class="network-line"><path d="M240 240L100 115M240 240L385 130M240 240L385 345M240 240L105 365M100 115L385 130L385 345L105 365Z" fill="none"/></g>
-<path class="signal" d="M100 115L240 240L385 130M105 365L240 240L385 345"/>
-<g class="orbit"><circle cx="240" cy="55" r="5" fill="#a78bfa"/><circle cx="240" cy="425" r="4" fill="#22d3ee"/></g><g class="orbit reverse"><circle cx="110" cy="240" r="4" fill="#22d3ee"/></g>
+<body class="ambient-bg grid-pattern antialiased selection:bg-violet-500 selection:text-white">
 
-<g><circle class="network-node" cx="100" cy="115" r="39"/><text class="network-label" x="100" y="119">DATA</text><circle class="network-node" cx="385" cy="130" r="39"/><text class="network-label" x="385" y="134">ANALYSIS</text><circle class="network-node" cx="385" cy="345" r="39"/><text class="network-label" x="385" y="349">ML / NLP</text><circle class="network-node" cx="105" cy="365" r="39"/><text class="network-label" x="105" y="369">APPS</text></g></svg><div class="portrait-frame"><img class="hero-portrait" src="cv.jpeg" alt="Kathuskan Thavarajah wearing a navy suit" width="1536" height="2752" fetchpriority="high" decoding="async"></div><span class="art-caption">Curiosity, creativity, and code.</span></div></div></div></section>
-<section id="about"><div class="container"><div class="section-header reveal"><div class="section-subtitle">About me</div><h2 class="section-title">A curious mind. A practical approach.</h2><p class="section-description">Combining analytical thinking with a creative background.</p></div><div class="grid grid-2"><div class="card education reveal"><span class="eyebrow">2024–present · Education</span><p class="degree">BSc (Hons)<br>Data Science</p><p class="card-text">Sabaragamuwa University of Sri Lanka</p><p class="card-text">Coursework: Data Structures, Data Pre-Processing, Statistics, and Software Development.</p></div><div class="card reveal"><div class="card-body"><h3 class="card-title">From exploration to implementation</h3><p class="card-text">I enjoy working across the data science workflow: exploring datasets, engineering features, evaluating models, and connecting predictions to useful interfaces.</p><p class="card-text">My projects include a used-car valuation engine for Sri Lanka, an NLP book-rating predictor, and full-stack web applications. I'm interested in machine learning, natural language processing, data engineering, and business intelligence.</p><p class="card-text">My background in graphic design brings attention to detail and visual communication to my technical work. I'm seeking a Data Science internship where I can contribute, collaborate, and keep learning.</p></div></div></div></div></section><section id="skills"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Skills</div><h2 class="section-title">My toolkit</h2><p class="section-description">Technologies I use to explore data and build applications.</p></div><div class="grid grid-3"><div class="skill-item reveal"><h3 class="card-title">Programming</h3><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">Java</span><span class="tech-tag">JavaScript</span><span class="tech-tag">SQL</span></div></div><div class="skill-item reveal"><h3 class="card-title">Data & visualization</h3><div class="tech-tags"><span class="tech-tag">Pandas</span><span class="tech-tag">NumPy</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">Seaborn</span><span class="tech-tag">Power BI</span></div></div><div class="skill-item reveal"><h3 class="card-title">Machine learning & NLP</h3><div class="tech-tags"><span class="tech-tag">Scikit-learn</span><span class="tech-tag">XGBoost</span><span class="tech-tag">Random Forest</span><span class="tech-tag">TF-IDF</span><span class="tech-tag">VADER</span></div></div><div class="skill-item reveal"><h3 class="card-title">Web development</h3><div class="tech-tags"><span class="tech-tag">React</span><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">Laravel</span></div></div><div class="skill-item reveal"><h3 class="card-title">Databases & tools</h3><div class="tech-tags"><span class="tech-tag">MySQL</span><span class="tech-tag">MongoDB</span><span class="tech-tag">Git</span><span class="tech-tag">GitHub</span></div></div><div class="skill-item reveal"><h3 class="card-title">Creative tools</h3><div class="tech-tags"><span class="tech-tag">Adobe Photoshop</span><span class="tech-tag">Adobe Illustrator</span><span class="tech-tag">Canva</span></div></div></div></div></section><section id="projects"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Selected projects</div><h2 class="section-title">What I've built</h2><p class="section-description">Machine learning experiments and applications, from raw data to usable products.</p></div><div class="grid grid-2"><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">01 · MACHINE LEARNING</p><h3 class="card-title">Used Car Valuation Engine</h3><p class="card-text">A full-stack pricing platform for the Sri Lankan vehicle market. Compared six predictive models and deployed a Random Forest regressor with validated inputs and real-time predictions.</p><p class="metric"><strong>0.88</strong> R² · MAE: LKR 384,000</p><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">React</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">XGBoost</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskanthavarajah/used_car_valuation_project" target="_blank" rel="noopener noreferrer" aria-label="View Used Car Valuation Engine on GitHub">View on GitHub ↗</a></div></div></article><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">02 · NATURAL LANGUAGE PROCESSING</p><h3 class="card-title">Book Rating Predictor</h3><p class="card-text">An NLP pipeline predicting average book ratings from marketing blurbs. Combined TF-IDF text features with VADER sentiment scores and trained a Random Forest regressor.</p><p class="metric"><strong>0.17</strong> MAE in stars · 4,700+ entries</p><div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">TF-IDF</span><span class="tech-tag">VADER</span><span class="tech-tag">Random Forest</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskan/mini_nlp_project" target="_blank" rel="noopener noreferrer" aria-label="View Book Rating Predictor on GitHub">View on GitHub ↗</a></div></div></article><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">03 · FULL-STACK DEVELOPMENT</p><h3 class="card-title">Shelv Marketplace</h3><p class="card-text">A marketplace for buying and renting books, with Stripe Checkout, Cloudinary image optimization, and targeted MongoDB queries.</p><div class="tech-tags"><span class="tech-tag">MongoDB</span><span class="tech-tag">Express.js</span><span class="tech-tag">React</span><span class="tech-tag">Node.js</span><span class="tech-tag">Stripe</span><span class="tech-tag">Cloudinary</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskanthavarajah/shelv" target="_blank" rel="noopener noreferrer" aria-label="View Shelv Marketplace on GitHub">View on GitHub ↗</a></div></div></article><article class="card project-card reveal"><div class="project-visual" aria-hidden="true"><span style="--h:25%;--d:-0.0s"></span><span style="--h:48%;--d:-0.5s"></span><span style="--h:36%;--d:-1.0s"></span><span style="--h:65%;--d:-1.5s"></span><span style="--h:52%;--d:-2.0s"></span><span style="--h:82%;--d:-2.5s"></span><span style="--h:70%;--d:-3.0s"></span><span style="--h:100%;--d:-3.5s"></span></div><div class="card-body"><p class="project-number">04 · TEAM PROJECT</p><h3 class="card-title">Dream Stack</h3><p class="card-text">Contributed frontend components to a collaborative goal-tracking platform. Integrated Laravel APIs and real-time push notifications to help users monitor personal milestones.</p><div class="tech-tags"><span class="tech-tag">JavaScript</span><span class="tech-tag">CSS</span><span class="tech-tag">Laravel</span><span class="tech-tag">REST APIs</span></div><div class="card-actions"><a class="btn" href="https://github.com/kathuskan/dream-stack" target="_blank" rel="noopener noreferrer" aria-label="View Dream Stack on GitHub">View on GitHub ↗</a></div></div></article></div><p class="form-note">Model metrics are from the project evaluations reported in my CV.</p></div></section><section id="experience"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Experience</div><h2 class="section-title">Creativity & community</h2><p class="section-description">Design experience, leadership, and teamwork beyond the classroom.</p></div><div class="grid grid-2"><article class="card reveal"><div class="card-body"><h3 class="card-title">Senior Graphic Designer</h3><p class="eyebrow">Vikky Printers · Kovil Porativu</p><p class="card-text">Two years of experience creating print and digital graphics and collaborating with clients.</p></div></article><article class="card reveal"><div class="card-body"><h3 class="card-title">Media Team Coordinator</h3><p class="eyebrow">Uthayatharagai Arts and Sports Club</p><p class="card-text">Coordinating content creation, event coverage, and social media activities.</p></div></article><article class="card reveal"><div class="card-body"><h3 class="card-title">Graphic Design Volunteer</h3><p class="eyebrow">IEEE Computer Society Chapter & Sabra Cricket Team</p><p class="card-text">Creating visual content and promotional materials for workshops, events, and university cricket.</p></div></article><article class="card reveal"><div class="card-body"><h3 class="card-title">Community involvement</h3><p class="eyebrow">Zero Plastic Movement · Leo Club · Rotaract Club (SUSL)</p><p class="card-text">Contributing to community service, environmental awareness, and social projects.</p></div></article></div></div></section><section id="certifications"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Certifications</div><h2 class="section-title">Always learning</h2><p class="section-description">Further learning in AI, analytics, and machine learning.</p></div><ul class="certificate-list"><li class="reveal"><a href="https://academy.amd.com/certs/31042/157CE4AB9E9D426BB7BDE9C315DDB482166281.pdf" target="_blank" rel="noopener noreferrer">AI Agents 101: Building AI Agents with MCP and Open-Source Inference ↗<small>AMD AI Academy</small></a></li><li class="reveal"><a href="https://coursera.org/share/84088f968c1c682bffb662e737ae9dec" target="_blank" rel="noopener noreferrer">Foundations of Business Intelligence ↗<small>Coursera</small></a></li><li class="reveal"><a href="https://coursera.org/share/5d7f0e013cdb7a3101362e989c4ca58b" target="_blank" rel="noopener noreferrer">Foundations: Data, Data, Everywhere ↗<small>Coursera</small></a></li><li class="reveal"><a href="https://coursera.org/share/a8ef80192fab2e739a6072afc7682a08" target="_blank" rel="noopener noreferrer">Diabetes Disease Detection with XG-Boost and Neural Networks ↗<small>Coursera</small></a></li></ul></div></section><section id="contact"><div class="container"><div class="section-header reveal"><div class="section-subtitle">Get in touch</div><h2 class="section-title">Let's work with data</h2><p class="section-description">Seeking a Data Science internship. I'd love to hear about opportunities to contribute and learn.</p></div><div class="grid grid-2"><form class="contact-form reveal" id="contactForm" action="mailto:TKathuskan@gmail.com" method="get"><div class="form-group"><label class="form-label" for="name">Name</label><input class="form-input" id="name" name="name" autocomplete="name" required maxlength="120"></div><div class="form-group"><label class="form-label" for="email">Email</label><input class="form-input" id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div><div class="form-group"><label class="form-label" for="message">Message</label><textarea class="form-textarea" id="message" name="message" required maxlength="3000"></textarea></div><button class="btn primary" type="submit">Open Email Draft ↗</button><p class="form-note">Opens your email app with a draft. Review and send it there, or email me directly.</p><p id="formStatus" class="form-note" role="status"></p></form><div class="contact-details reveal"><h3 class="card-title">Start a conversation</h3><p><a href="mailto:TKathuskan@gmail.com">TKathuskan@gmail.com</a></p><p><a href="https://www.linkedin.com/in/kathuskan-thavarajah/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></p><p><a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer">Explore my GitHub ↗</a></p><p><a href="tel:+94758114531">+94 75 811 4531</a></p><p class="card-text">Interested in machine learning, NLP, data analysis, and building useful applications.</p></div></div></div></section></main><footer><div class="container"><div class="footer-content"><div>© <span id="year">2026</span> Kathuskan Thavarajah.</div><a href="#home">Back to top ↑</a></div></div></footer>
-<script>
-const root = document.documentElement;
-const themeToggle = document.getElementById('themeToggle');
-function applyTheme(theme) {
- root.dataset.theme = theme;
- const next = theme === 'dark' ? 'light' : 'dark';
- document.getElementById('themeLabel').textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
- themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
- document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#0a0d14' : '#f8fafc';
-}
-let savedTheme;
-try { savedTheme = localStorage.getItem('theme'); } catch (_) {}
-applyTheme(['light','dark'].includes(savedTheme) ? savedTheme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-themeToggle.addEventListener('click', () => {
- const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
- applyTheme(theme); try { localStorage.setItem('theme',theme); } catch (_) {}
-});
-const menuToggle = document.getElementById('menuToggle');
-const menu = document.getElementById('navMenu');
-function closeMenu() { menu.classList.remove('open'); menuToggle.setAttribute('aria-expanded','false'); }
-menuToggle.addEventListener('click', () => { const open = menu.classList.toggle('open'); menuToggle.setAttribute('aria-expanded', String(open)); });
-menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) { closeMenu(); menuToggle.focus(); } });
-document.addEventListener('click', e => { if (!document.getElementById('navbar').contains(e.target)) closeMenu(); });
-const navbar = document.getElementById('navbar');
-function updateNav() { navbar.classList.toggle('scrolled', scrollY > 50); }
-window.addEventListener('scroll', updateNav, {passive:true}); updateNav();
-const motion = matchMedia('(prefers-reduced-motion: reduce)');
-if (!motion.matches && 'IntersectionObserver' in window) {
- root.classList.add('motion-ready');
- const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-  if (entry.isIntersecting) { entry.target.classList.remove('pending'); observer.unobserve(entry.target); }
- }), {threshold:0.08});
- document.querySelectorAll('.reveal').forEach(el => { el.classList.add('pending'); observer.observe(el); });
-}
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('contactForm').addEventListener('submit', e => {
- e.preventDefault();
- const name = document.getElementById('name').value.trim();
- const email = document.getElementById('email').value.trim();
- const message = document.getElementById('message').value.trim();
- if (!name || !message) { document.getElementById('formStatus').textContent = 'Please enter your name and message.'; return; }
- const subject = 'Portfolio enquiry from ' + name;
- const body = message + '\n\nFrom: ' + name + '\nEmail: ' + email;
- window.location.href = 'mailto:TKathuskan@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
- document.getElementById('formStatus').textContent = 'Continue in your email app to send. If it did not open, email TKathuskan@gmail.com directly.';
-});
-</script></body></html>
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-violet-600 focus:text-white">
+    Skip to main content
+  </a>
+
+  <!-- ==================== STICKY GLASSMORPHIC NAVBAR ==================== -->
+  <header id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-slate-200/60 dark:border-slate-800/80 bg-white/75 dark:bg-[#080b12]/80 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#home" class="flex items-center gap-3 group focus:outline-none">
+        <div
+          class="w-11 h-11 rounded-xl bg-gradient-to-br from-violet-600 via-indigo-500 to-cyan-500 flex items-center justify-center text-white font-extrabold text-lg shadow-glow group-hover:scale-105 transition-transform">
+          KT
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-base tracking-tight text-slate-900 dark:text-white leading-none">Kathuskan</span>
+          <span class="font-mono text-[11px] text-violet-600 dark:text-cyan-400 mt-1">Data Science &middot; SUSL</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Primary Navigation" class="hidden lg:flex items-center gap-7 text-sm font-medium">
+        <a href="#about"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">Expertise</a>
+        <a href="#projects"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          Projects
+          <span
+            class="px-1.5 py-0.5 text-[10px] font-mono rounded-full bg-violet-500/15 text-violet-600 dark:text-violet-300 border border-violet-500/30">6</span>
+        </a>
+        <a href="#certifications"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">Certifications</a>
+        <a href="#experience"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">Leadership</a>
+        <a href="#references"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">References</a>
+        <a href="#contact"
+          class="text-slate-600 dark:text-slate-300 hover:text-violet-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Actions: Download CV + Theme Toggle + Mobile Menu Button -->
+      <div class="flex items-center gap-2.5">
+        <a href="Kathuskan_Thavarajah_CV.pdf" download
+          class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 shadow-md hover:shadow-glow transition-all">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Download CV</span>
+        </a>
+
+        <!-- Theme Switcher -->
+        <button id="themeToggle" type="button" aria-label="Toggle color theme"
+          class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 hover:border-violet-500/50 transition-all">
+          <i id="themeIcon" class="fa-solid fa-sun text-amber-400 text-sm"></i>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobileMenuBtn" type="button" aria-label="Toggle Mobile Navigation" aria-expanded="false"
+          class="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-base"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#0b101b]/95 backdrop-blur-xl px-6 py-5 space-y-3">
+      <div class="grid grid-cols-2 gap-2 text-sm font-medium">
+        <a href="#about" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">About & Education</a>
+        <a href="#skills" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">Technical Skills</a>
+        <a href="#projects" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">Projects (6)</a>
+        <a href="#certifications" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">Certifications</a>
+        <a href="#experience" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">Leadership</a>
+        <a href="#references" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">References</a>
+        <a href="#contact" class="mobile-nav-link py-2 px-3 rounded-lg hover:bg-violet-500/10">Contact</a>
+      </div>
+      <div class="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center gap-3">
+        <a href="Kathuskan_Thavarajah_CV.pdf" download
+          class="w-full py-2.5 px-4 rounded-xl text-center text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-600">
+          <i class="fa-solid fa-file-arrow-down mr-1.5"></i> Download Official CV (PDF)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Left Column: Intro, Bio, CTAs & KPIs -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <!-- Availability Badge -->
+            <div
+              class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-mono font-medium">
+              <span class="relative flex h-2.5 w-2.5">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>Available for Data Science Internships</span>
+            </div>
+
+            <!-- Main Headline -->
+            <div class="space-y-3">
+              <h1
+                class="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+                Hi, I'm <span
+                  class="bg-gradient-to-r from-violet-500 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">Kathuskan
+                  Thavarajah</span>
+              </h1>
+              <p class="text-xl sm:text-2xl font-semibold text-slate-700 dark:text-slate-200">
+                Data Science Undergraduate &amp; Full-Stack Developer
+              </p>
+            </div>
+
+            <!-- Bio Lead -->
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Motivated <strong class="text-slate-900 dark:text-white font-semibold">BSc (Hons) in Data Science</strong>
+              undergraduate at <strong class="text-slate-900 dark:text-white font-semibold">Sabaragamuwa University of
+                Sri Lanka</strong>. I engineer end-to-end machine learning pipelines, time-series forecasting models,
+              NLP systems, Power BI dashboards, and full-stack web applications that turn noisy real-world datasets into
+              production decisions.
+            </p>
+
+            <!-- Primary CTA Buttons & Quick Socials -->
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+              <a href="#projects"
+                class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 shadow-glow transition-all hover:-translate-y-0.5">
+                <span>Explore 6 Projects</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </a>
+              <a href="Kathuskan_Thavarajah_CV.pdf" download
+                class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 text-slate-800 dark:text-slate-100 hover:border-violet-500 transition-all hover:-translate-y-0.5">
+                <i class="fa-solid fa-download text-violet-500"></i>
+                <span>Download CV</span>
+              </a>
+
+              <!-- Social Icon Pills -->
+              <div class="flex items-center gap-2 pl-1">
+                <a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  class="w-11 h-11 rounded-xl border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-violet-500 hover:border-violet-500 transition-all">
+                  <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/kathuskan-thavarajah/" target="_blank" rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  class="w-11 h-11 rounded-xl border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-all">
+                  <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+                <a href="mailto:TKathuskan@gmail.com" aria-label="Send Email"
+                  class="w-11 h-11 rounded-xl border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-400 hover:border-emerald-400 transition-all">
+                  <i class="fa-solid fa-envelope text-lg"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Key KPI Highlight Strip -->
+            <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-200/80 dark:border-slate-800/80">
+              <div class="bento-card p-3.5 rounded-2xl text-left">
+                <div class="font-mono text-xl sm:text-2xl font-bold text-violet-600 dark:text-violet-400">6+</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">End-to-End ML, BI &amp; Web Projects</div>
+              </div>
+              <div class="bento-card p-3.5 rounded-2xl text-left">
+                <div class="font-mono text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-400">32,700+</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Market, Text &amp; Stock Records Modeled</div>
+              </div>
+              <div class="bento-card p-3.5 rounded-2xl text-left">
+                <div class="font-mono text-xl sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">SUSL</div>
+                <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">BSc (Hons) Data Science (2024–Present)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Animated SVG Data Network + Portrait Frame -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+            <div class="relative w-full max-w-[440px] aspect-square flex items-center justify-center">
+              <!-- Top Monospace Tag -->
+              <span
+                class="absolute -top-3 right-2 z-20 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase bg-slate-900/90 text-cyan-300 border border-cyan-500/30 shadow">
+                DATA &rarr; MODELS &rarr; APPS
+              </span>
+
+              <!-- Animated SVG Network -->
+              <svg class="w-full h-full overflow-visible" viewBox="0 0 480 480" role="img"
+                aria-label="Animated network connecting Data, Analysis, ML/NLP, and Applications">
+                <defs>
+                  <linearGradient id="netGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#8b5cf6" />
+                    <stop offset="50%" stop-color="#06b6d4" />
+                    <stop offset="100%" stop-color="#10b981" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Concentric Orbital Rings -->
+                <g fill="none" stroke="currentColor" class="text-slate-400/20 dark:text-slate-600/25">
+                  <circle cx="240" cy="240" r="195" stroke-dasharray="4 6" />
+                  <circle cx="240" cy="240" r="142" />
+                  <circle cx="240" cy="240" r="95" />
+                </g>
+
+                <!-- Network Connections -->
+                <g stroke="url(#netGrad)" stroke-width="1.5" opacity="0.35" fill="none">
+                  <path
+                    d="M240 240L95 110M240 240L390 120M240 240L390 360M240 240L95 365M95 110L390 120L390 360L95 365Z" />
+                </g>
+
+                <!-- Animated Signal Pulses -->
+                <path class="signal-path" stroke="#22d3ee" stroke-width="2.5" fill="none"
+                  d="M95 110L240 240L390 120M95 365L240 240L390 360" />
+
+                <!-- Orbiting Particles -->
+                <g class="orbit">
+                  <circle cx="240" cy="45" r="5" fill="#a78bfa" />
+                  <circle cx="240" cy="435" r="4" fill="#22d3ee" />
+                </g>
+                <g class="orbit reverse">
+                  <circle cx="98" cy="240" r="4.5" fill="#10b981" />
+                  <circle cx="382" cy="240" r="3.5" fill="#a78bfa" />
+                </g>
+
+                <!-- Outer Nodes -->
+                <g class="font-mono text-[11px] font-semibold fill-slate-800 dark:fill-slate-100">
+                  <circle cx="95" cy="110" r="40" class="fill-white dark:fill-[#111622]" stroke="#8b5cf6"
+                    stroke-width="2" />
+                  <text x="95" y="114" text-anchor="middle">DATA</text>
+
+                  <circle cx="390" cy="120" r="40" class="fill-white dark:fill-[#111622]" stroke="#06b6d4"
+                    stroke-width="2" />
+                  <text x="390" y="124" text-anchor="middle">ANALYSIS</text>
+
+                  <circle cx="390" cy="360" r="40" class="fill-white dark:fill-[#111622]" stroke="#10b981"
+                    stroke-width="2" />
+                  <text x="390" y="364" text-anchor="middle">ML / NLP</text>
+
+                  <circle cx="95" cy="365" r="40" class="fill-white dark:fill-[#111622]" stroke="#a78bfa"
+                    stroke-width="2" />
+                  <text x="95" y="369" text-anchor="middle">WEB APPS</text>
+                </g>
+              </svg>
+
+              <!-- Center Portrait Frame with Automatic Fallback -->
+              <div
+                class="absolute w-44 sm:w-48 aspect-[4/5] rounded-3xl p-1 bg-gradient-to-br from-violet-500 via-cyan-400 to-emerald-400 shadow-2xl overflow-hidden group">
+                <div class="w-full h-full rounded-[20px] overflow-hidden bg-slate-900 relative flex items-center justify-center">
+                  <img src="cv.jpeg" alt="Kathuskan Thavarajah"
+                    class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    onerror="this.style.display='none'; document.getElementById('avatarFallback').classList.remove('hidden');" />
+                  <!-- Fallback if cv.jpeg is not in same directory during preview -->
+                  <div id="avatarFallback"
+                    class="hidden absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex flex-col items-center justify-center p-4 text-center">
+                    <div
+                      class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-violet-600 to-cyan-500 flex items-center justify-center text-white text-2xl font-black shadow-lg mb-2">
+                      KT
+                    </div>
+                    <span class="text-xs font-semibold text-white">Kathuskan Thavarajah</span>
+                    <span class="text-[10px] font-mono text-cyan-400 mt-0.5">Data Science Intern</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Floating Caption -->
+              <div
+                class="absolute -bottom-3 px-4 py-1.5 rounded-full bento-card text-xs font-medium text-slate-600 dark:text-slate-300 shadow-lg flex items-center gap-2">
+                <i class="fa-solid fa-sparkles text-violet-500"></i>
+                <span>Statistical Rigor &times; Full-Stack Execution</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT, EDUCATION & EXPERTISE BENTO GRID ==================== -->
+    <section id="about" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Heading -->
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+            <span class="w-2 h-2 rounded-full bg-violet-500"></span>
+            <span>01 / Profile &amp; Academic Foundation</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Bridging Quantitative Modeling &amp; Product Engineering
+          </h2>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Education Card (5 Cols) -->
+          <div class="lg:col-span-5 bento-card rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-violet-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-violet-500/15 text-violet-600 dark:text-violet-300 border border-violet-500/30">
+                  2024 – Present
+                </span>
+                <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Undergraduate Degree</span>
+              </div>
+              <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white leading-snug">
+                BSc (Hons) in Data Science
+              </h3>
+              <p class="text-sm font-semibold text-cyan-600 dark:text-cyan-400 mt-1 flex items-center gap-2">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Sabaragamuwa University of Sri Lanka (SUSL)</span>
+              </p>
+
+              <div class="mt-6">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
+                  Relevant University Coursework
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Machine Learning</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Regression Analysis</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Probability Theory</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Applied Data Mining</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Data Pre-Processing</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Data Visualization</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Data Structures</span>
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-200/70 dark:bg-slate-800/90 text-slate-800 dark:text-slate-200">Software Development</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-5 border-t border-slate-200/70 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <span>Faculty of Computing</span>
+              <span class="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">Active Student</span>
+            </div>
+          </div>
+
+          <!-- Profile Narrative & Core Areas of Expertise (7 Cols) -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <div class="bento-card rounded-3xl p-7 space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                <i class="fa-solid fa-Microchip text-violet-500"></i>
+                <span>From Raw Data Exploration to Production Deployment</span>
+              </h3>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                I specialize in working across the complete data science lifecycle: cleaning messy real-world records,
+                conducting rigorous statistical diagnostics, engineering high-signal features, validating models with
+                grouped or chronological splits, and packaging predictions into responsive web interfaces or interactive
+                executive dashboards.
+              </p>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                Whether evaluating <strong class="text-slate-900 dark:text-white">Extra Trees regressors on 11,750 Sri
+                  Lankan vehicle listings</strong>, analyzing <strong class="text-slate-900 dark:text-white">16,272 IBM
+                  stock observations with Azure Databricks &amp; PySpark</strong>, or building <strong
+                  class="text-slate-900 dark:text-white">NLP rating pipelines and full-stack marketplaces</strong>, I
+                combine analytical discipline with a background in visual design to communicate complex findings clearly.
+              </p>
+            </div>
+
+            <!-- Core Areas of Expertise Card -->
+            <div class="bento-card rounded-3xl p-7">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-violet-600 dark:text-cyan-400 mb-3.5">
+                Core Areas of Expertise
+              </h4>
+              <div class="flex flex-wrap gap-2.5">
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-violet-500/10 text-violet-700 dark:text-violet-300 border border-violet-500/25">Regression Modeling</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/25">Exploratory Data Analysis (EDA)</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">Feature Engineering</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-violet-500/10 text-violet-700 dark:text-violet-300 border border-violet-500/25">Model Evaluation &amp; Validation</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/25">Natural Language Processing (NLP)</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">Time-Series Forecasting &amp; Uncertainty</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-violet-500/10 text-violet-700 dark:text-violet-300 border border-violet-500/25">Data Visualization</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/25">Business Intelligence (Power BI)</span>
+                <span class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">Full-Stack Web Architecture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TECHNICAL SKILLS MATRIX ==================== -->
+    <section id="skills" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+            <span>02 / Technical Stack</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Skills &amp; Tooling Matrix
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+            Languages, machine learning frameworks, big data platforms, and full-stack web technologies I use to build
+            and deploy data products.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 1. Programming Languages -->
+          <div class="bento-card rounded-3xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center text-violet-500">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white">Programming Languages</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Core computation &amp; querying</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Python</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">SQL</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">JavaScript (ES6+)</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Java</span>
+            </div>
+          </div>
+
+          <!-- 2. Machine Learning, NLP & Stats -->
+          <div class="bento-card rounded-3xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white">Machine Learning &amp; NLP</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Predictive &amp; statistical modeling</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Scikit-learn</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Statsmodels (ARIMA)</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Extra Trees</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Random Forest</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">XGBoost</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">TF-IDF Embeddings</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">VADER Sentiment</span>
+            </div>
+          </div>
+
+          <!-- 3. Big Data, Analytics & BI -->
+          <div class="bento-card rounded-3xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white">Big Data, Analytics &amp; BI</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Distributed prep &amp; dashboards</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Azure Databricks</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">PySpark</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Pandas</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">NumPy</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Microsoft Power BI</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Power Query</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Matplotlib</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Seaborn</span>
+            </div>
+          </div>
+
+          <!-- 4. Frontend & Backend Engineering -->
+          <div class="bento-card rounded-3xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white">Full-Stack Web Engineering</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">APIs &amp; responsive interfaces</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">FastAPI</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">React.js</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Node.js</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Express.js</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Tailwind CSS</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">HTML5 / CSS3</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Laravel</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Stripe API</span>
+            </div>
+          </div>
+
+          <!-- 5. Databases & DevOps -->
+          <div class="bento-card rounded-3xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white">Databases &amp; Workflow</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Storage &amp; version control</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">MySQL</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">MongoDB</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Git</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">GitHub</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">SSH Deployment</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">RESTful APIs</span>
+            </div>
+          </div>
+
+          <!-- 6. Creative & Soft Skills -->
+          <div class="bento-card rounded-3xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400">
+                <i class="fa-solid fa-pen-ruler"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white">Visual Design &amp; Soft Skills</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Storytelling &amp; collaboration</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Adobe Photoshop</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Adobe Illustrator</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Canva</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Teamwork</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Time Management</span>
+              <span class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/75 dark:bg-slate-800/90">Visual Storytelling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FILTERABLE FEATURED PROJECTS SHOWCASE (ALL 6) ==================== -->
+    <section id="projects" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>03 / Featured Portfolio</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              End-to-End Data Science &amp; Engineering Projects
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+              Filter by domain or click <strong class="text-slate-900 dark:text-white">"Technical Architecture"</strong>
+              on any project to inspect the methodology, validation metrics, and system design.
+            </p>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category">
+            <button type="button" data-filter="all"
+              class="project-filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-md">
+              All Projects (6)
+            </button>
+            <button type="button" data-filter="ml-nlp"
+              class="project-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-violet-500">
+              Machine Learning &amp; NLP (2)
+            </button>
+            <button type="button" data-filter="data-bi"
+              class="project-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-violet-500">
+              Big Data, Time-Series &amp; BI (2)
+            </button>
+            <button type="button" data-filter="fullstack"
+              class="project-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-violet-500">
+              Full-Stack Web (2)
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Grid (Dynamically Rendered or Static Cards with Modal Trigger) -->
+        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+
+          <!-- PROJECT 1: AutoValue LK -->
+          <article data-category="ml-nlp"
+            class="project-card bento-card project-card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <!-- Top Visual Header -->
+              <div class="p-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/80 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30">
+                    ML Web Application
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <i class="fa-solid fa-university text-violet-400"></i> SUSL
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  AutoValue LK — Vehicle Price Prediction Web App
+                </h3>
+                <!-- Key Quantitative Metric Callout -->
+                <div class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-semibold">
+                    R² = 0.739
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-semibold">
+                    84.95% within ±20% Price
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    11,750 Records
+                  </span>
+                </div>
+              </div>
+
+              <!-- Card Body -->
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  End-to-end machine learning web application estimating vehicle asking prices in Sri Lanka from brand,
+                  model, manufacture year, engine capacity, transmission, fuel type, mileage, and condition.
+                </p>
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Cleaned 11,750 records; engineered vehicle-age, brand-model &amp; log-mileage features.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Compared 7 regression models with grouped CV; tuned Extra Trees regressor.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Built FastAPI backend &amp; guided UI outputting Sri Lankan Rupees (LKR) &amp; Lakhs.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Footer Tags & Actions -->
+            <div class="p-6 pt-0 space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Python</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">FastAPI</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Scikit-learn</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Extra Trees</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Pandas</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">JavaScript</span>
+              </div>
+
+              <div class="flex items-center gap-2.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+                <button type="button" onclick="openProjectModal(0)"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold bg-violet-600/15 hover:bg-violet-600 text-violet-700 dark:text-violet-300 hover:text-white border border-violet-500/30 transition-all">
+                  <i class="fa-solid fa-diagram-project mr-1"></i> Technical Architecture
+                </button>
+                <a href="https://github.com/kathuskanthavarajah/used_car_valuation_project" target="_blank"
+                  rel="noopener noreferrer" aria-label="View AutoValue LK on GitHub"
+                  class="py-2.5 px-3.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:border-cyan-400 text-slate-700 dark:text-slate-200 transition-all">
+                  <i class="fa-brands fa-github"></i> Code ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: IBM Stock Forecasting with Databricks -->
+          <article data-category="data-bi"
+            class="project-card bento-card project-card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="p-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/80 bg-gradient-to-br from-cyan-500/10 via-transparent to-emerald-500/10">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-cyan-500/20 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
+                    Big Data &amp; Time-Series
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <i class="fa-solid fa-university text-cyan-400"></i> SUSL
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  IBM Stock Forecasting &amp; Uncertainty Analysis
+                </h3>
+                <div class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-semibold">
+                    16,272 Observations
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-semibold">
+                    MAE: 4.4037 | RMSE: 7.2174
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    83.33% PI Coverage
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Time-series forecasting study on 16,272 Yahoo Finance IBM stock records using Azure Databricks and
+                  PySpark for data preparation, and Python/Statsmodels for stationarity &amp; autocorrelation modeling.
+                </p>
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Compared ARIMA(1,1,0), ARIMA(0,1,1) &amp; ARIMA(1,1,1) vs. previous-close baseline.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Chronological splits &amp; sequential 1-day-ahead validation on 414 held-out days.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Evaluated 90% historical-quantile intervals (83.33% empirical coverage).</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Azure Databricks</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">PySpark</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Python</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Statsmodels</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">ARIMA</span>
+              </div>
+
+              <div class="flex items-center gap-2.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+                <button type="button" onclick="openProjectModal(1)"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold bg-violet-600/15 hover:bg-violet-600 text-violet-700 dark:text-violet-300 hover:text-white border border-violet-500/30 transition-all">
+                  <i class="fa-solid fa-diagram-project mr-1"></i> Technical Architecture
+                </button>
+                <a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer"
+                  aria-label="View IBM Stock Forecasting on GitHub"
+                  class="py-2.5 px-3.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:border-cyan-400 text-slate-700 dark:text-slate-200 transition-all">
+                  <i class="fa-brands fa-github"></i> GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: LitPredict NLP Book Rating Predictor -->
+          <article data-category="ml-nlp"
+            class="project-card bento-card project-card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="p-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/80 bg-gradient-to-br from-emerald-500/10 via-transparent to-violet-500/10">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                    NLP &amp; Machine Learning
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <i class="fa-solid fa-university text-emerald-400"></i> SUSL
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  LitPredict: NLP Book Rating Predictor
+                </h3>
+                <div class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-semibold">
+                    0.17 Stars MAE
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-violet-500/15 text-violet-700 dark:text-violet-300 border border-violet-500/30 font-semibold">
+                    4,700+ Books
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-200/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    TF-IDF + VADER
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  End-to-end NLP regression pipeline predicting a book's critical reception (average rating) solely from
+                  its raw marketing blurb across 4,700+ titles.
+                </p>
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Concatenated dense VADER sentiment scores with sparse TF-IDF embeddings.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Pearson correlation matrices proved semantic vocabulary outweighs pure sentiment.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Packaged reproducible scripts (<code class="font-mono">pipeline.py</code>, <code class="font-mono">predict.py</code>) via Git/SSH.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Python</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">NLP</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">TF-IDF</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">VADER</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Random Forest</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Scikit-learn</span>
+              </div>
+
+              <div class="flex items-center gap-2.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+                <button type="button" onclick="openProjectModal(2)"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold bg-violet-600/15 hover:bg-violet-600 text-violet-700 dark:text-violet-300 hover:text-white border border-violet-500/30 transition-all">
+                  <i class="fa-solid fa-diagram-project mr-1"></i> Technical Architecture
+                </button>
+                <a href="https://github.com/kathuskan/mini_nlp_project" target="_blank" rel="noopener noreferrer"
+                  aria-label="View LitPredict on GitHub"
+                  class="py-2.5 px-3.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:border-cyan-400 text-slate-700 dark:text-slate-200 transition-all">
+                  <i class="fa-brands fa-github"></i> Code ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Sri Lanka Automotive Market Analysis Power BI Dashboard -->
+          <article data-category="data-bi"
+            class="project-card bento-card project-card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="p-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/80 bg-gradient-to-br from-amber-500/10 via-transparent to-violet-500/10">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                    Power BI &amp; Market Analytics
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <i class="fa-solid fa-university text-amber-400"></i> SUSL
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  Sri Lanka Automotive Market Analysis Dashboard
+                </h3>
+                <div class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-semibold">
+                    3-Page Power BI Report
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-violet-500/15 text-violet-700 dark:text-violet-300 border border-violet-500/30 font-semibold">
+                    &gt;50% Toyota &amp; Suzuki
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Interactive 3-page Microsoft Power BI dashboard analyzing the Sri Lankan secondary vehicle market
+                  using listings sourced from ikman.lk &amp; Riyasewana via Kaggle.
+                </p>
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Page 1: Market composition &amp; powertrain split (Toyota/Suzuki &gt;50% share).</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Page 2: Non-linear depreciation curves, Colombo premiums &amp; outlier scatter plots.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Page 3: Granular inventory explorer with multi-range interactive sliders.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Power BI</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Power Query</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Data Visualization</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Business Intelligence</span>
+              </div>
+
+              <div class="flex items-center gap-2.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+                <button type="button" onclick="openProjectModal(3)"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold bg-violet-600/15 hover:bg-violet-600 text-violet-700 dark:text-violet-300 hover:text-white border border-violet-500/30 transition-all">
+                  <i class="fa-solid fa-diagram-project mr-1"></i> Technical Architecture
+                </button>
+                <a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer"
+                  aria-label="View Automotive Dashboard on GitHub"
+                  class="py-2.5 px-3.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:border-cyan-400 text-slate-700 dark:text-slate-200 transition-all">
+                  <i class="fa-brands fa-github"></i> GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: Shelv - New & Used Book Marketplace -->
+          <article data-category="fullstack"
+            class="project-card bento-card project-card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="p-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/80 bg-gradient-to-br from-indigo-500/10 via-transparent to-cyan-500/10">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30">
+                    Full-Stack Marketplace
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400">MERN + Stripe</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  Shelv — New &amp; Used Book Marketplace
+                </h3>
+                <div class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30 font-semibold">
+                    Buyer / Seller / Admin Roles
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-semibold">
+                    Stripe + COD Checkout
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Full-stack e-commerce marketplace for buying and selling new and used books, supporting end-to-end
+                  buyer, seller, and administrator workflows.
+                </p>
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Role-based access control, book catalog browsing &amp; delivery address checkout.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Dual payment support: Stripe card integration &amp; Cash-on-Delivery (COD).</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Seller courier dispatch &amp; tracking; buyer reviews, refunds &amp; dispute workflows.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">React.js</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Node.js</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Express.js</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">MongoDB</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Stripe API</span>
+              </div>
+
+              <div class="flex items-center gap-2.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+                <button type="button" onclick="openProjectModal(4)"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold bg-violet-600/15 hover:bg-violet-600 text-violet-700 dark:text-violet-300 hover:text-white border border-violet-500/30 transition-all">
+                  <i class="fa-solid fa-diagram-project mr-1"></i> Technical Architecture
+                </button>
+                <a href="https://github.com/kathuskanthavarajah/shelv" target="_blank" rel="noopener noreferrer"
+                  aria-label="View Shelv Marketplace on GitHub"
+                  class="py-2.5 px-3.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:border-cyan-400 text-slate-700 dark:text-slate-200 transition-all">
+                  <i class="fa-brands fa-github"></i> Code ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: Pocket Manager - Personal Finance Tracking App -->
+          <article data-category="fullstack"
+            class="project-card bento-card project-card-hover rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="p-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/80 bg-gradient-to-br from-pink-500/10 via-transparent to-violet-500/10">
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-pink-500/20 text-pink-700 dark:text-pink-300 border border-pink-500/30">
+                    Full-Stack FinTech App
+                  </span>
+                  <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <i class="fa-solid fa-university text-pink-400"></i> SUSL
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                  Pocket Manager — Personal Finance Tracker
+                </h3>
+                <div class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+                  <span class="px-2.5 py-1 rounded-md bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30 font-semibold">
+                    Real-Time Net Savings UI
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-semibold">
+                    CSV Report Export
+                  </span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-4">
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Comprehensive full-stack personal finance web application designed to help users track income,
+                  expenses, and net savings in real time.
+                </p>
+                <ul class="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Interactive dashboard visualizing total income, expenses &amp; net savings.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Secure user authentication with registration, login &amp; profile picture uploads.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span>Categorized transaction CRUD &amp; one-click CSV financial report export.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0 space-y-4">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">React.js</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Tailwind CSS</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Node.js</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">Express.js</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-200/70 dark:bg-slate-800/90">MySQL</span>
+              </div>
+
+              <div class="flex items-center gap-2.5 pt-3 border-t border-slate-200/60 dark:border-slate-800/80">
+                <button type="button" onclick="openProjectModal(5)"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs font-semibold bg-violet-600/15 hover:bg-violet-600 text-violet-700 dark:text-violet-300 hover:text-white border border-violet-500/30 transition-all">
+                  <i class="fa-solid fa-diagram-project mr-1"></i> Technical Architecture
+                </button>
+                <a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer"
+                  aria-label="View Pocket Manager on GitHub"
+                  class="py-2.5 px-3.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:border-cyan-400 text-slate-700 dark:text-slate-200 transition-all">
+                  <i class="fa-brands fa-github"></i> GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CERTIFICATIONS SECTION (ALL 5 FROM CV) ==================== -->
+    <section id="certifications" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+            <span class="w-2 h-2 rounded-full bg-violet-500"></span>
+            <span>04 / Credentials &amp; Continuous Learning</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Verified Certifications
+          </h2>
+          <p class="text-slate-600 dark:text-slate-400 mt-2 text-sm sm:text-base">
+            Specialized training across AI Agents, Databricks Data Engineering, Business Intelligence, and Applied
+            Machine Learning.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Cert 1: AMD AI Academy -->
+          <a href="https://academy.amd.com/certs/31042/157CE4AB9E9D426BB7BDE9C315DDB482166281.pdf" target="_blank"
+            rel="noopener noreferrer"
+            class="bento-card rounded-2xl p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-violet-500/15 text-violet-600 dark:text-violet-300 border border-violet-500/30">
+                  AMD AI Academy
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-violet-400 transition-colors"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-cyan-400 transition-colors">
+                AI Agents 101: Building AI Agents with MCP and Open-Source Inference
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <span>Model Context Protocol (MCP)</span>
+              <span class="text-violet-600 dark:text-cyan-400">Verify PDF ↗</span>
+            </div>
+          </a>
+
+          <!-- Cert 2: Databricks Academy -->
+          <div class="bento-card rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
+                  Databricks Academy
+                </span>
+                <i class="fa-solid fa-certificate text-cyan-400 text-sm"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">
+                Knowledge Check: Get Started with Databricks for Data Engineering
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <span>Lakehouse &amp; PySpark Pipelines</span>
+              <span class="text-emerald-500">Completed</span>
+            </div>
+          </div>
+
+          <!-- Cert 3: Coursera BI -->
+          <a href="https://coursera.org/share/84088f968c1c682bffb662e737ae9dec" target="_blank"
+            rel="noopener noreferrer"
+            class="bento-card rounded-2xl p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                  Coursera
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-cyan-400 transition-colors">
+                Foundations of Business Intelligence
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <span>BI Pipelines &amp; Decision Systems</span>
+              <span class="text-violet-600 dark:text-cyan-400">Verify Credential ↗</span>
+            </div>
+          </a>
+
+          <!-- Cert 4: Coursera Data Everywhere -->
+          <a href="https://coursera.org/share/5d7f0e013cdb7a3101362e989c4ca58b" target="_blank"
+            rel="noopener noreferrer"
+            class="bento-card rounded-2xl p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                  Coursera
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-400 transition-colors"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-cyan-400 transition-colors">
+                Foundations: Data, Data, Everywhere
+              </h3>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <span>Data Analytics Lifecycle</span>
+              <span class="text-violet-600 dark:text-cyan-400">Verify Credential ↗</span>
+            </div>
+          </a>
+
+          <!-- Cert 5: Coursera XGBoost & Neural Networks -->
+          <a href="https://coursera.org/share/a8ef80192fab2e739a6072afc7682a08" target="_blank"
+            rel="noopener noreferrer"
+            class="bento-card rounded-2xl p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all md:col-span-2 lg:col-span-2">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                  Coursera Guided Project
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-amber-400 transition-colors"></i>
+              </div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white group-hover:text-violet-500 dark:group-hover:text-cyan-400 transition-colors">
+                Diabetes Disease Detection with XG-Boost and Neural Networks
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-1.5">
+                Applied gradient boosted decision trees and deep neural network architectures for clinical classification
+                and diagnostic evaluation.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/80 text-xs font-mono text-slate-500 dark:text-slate-400 flex items-center justify-between">
+              <span>XGBoost &middot; Neural Networks &middot; Healthcare ML</span>
+              <span class="text-violet-600 dark:text-cyan-400">Verify Credential ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LEADERSHIP, EXPERIENCE & VOLUNTEERING ==================== -->
+    <section id="experience" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+            <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+            <span>05 / Leadership, Design &amp; Volunteering</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Creative Experience &amp; Campus Impact
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Item 1 -->
+          <div class="bento-card rounded-3xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-violet-600 dark:text-violet-400">
+                Faculty of Computing &middot; SUSL
+              </span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                Graphic Design Volunteer
+              </h3>
+              <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5">
+                IEEE Computer Society Chapter &amp; Sabra Cricket Team
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Created engaging visual content, social media graphics, and promotional materials supporting academic
+                computing workshops, IEEE chapter events, and university cricket activities.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="bento-card rounded-3xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+                Kovil Porativu
+              </span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                Media Team Coordinator
+              </h3>
+              <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5">
+                Uthayatharagai Arts and Sports Club
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Coordinated media activities for the club, including digital content creation, live event coverage, and
+                social media management, strengthening organizational communication.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="bento-card rounded-3xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                Industry Experience &middot; 2 Years
+              </span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                Senior Graphic Designer
+              </h3>
+              <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5">
+                Vikky Printers &middot; Kovil Porativu
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Delivered production print and digital visual assets directly for clients, developing strong layout
+                precision, visual hierarchy, and deadline management.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="bento-card rounded-3xl p-6 flex flex-col justify-between md:col-span-2">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                University Societies &amp; Cloud Builders &middot; SUSL
+              </span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                Active Community &amp; Technical Member
+              </h3>
+              <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5">
+                Zero Plastic Movement &middot; Leo Club &middot; Rotaract Club &middot; AWS Student Builder Group (SUSL)
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Contributed to university-wide community service, sustainability campaigns, and cloud builder
+                initiatives while developing cross-functional teamwork across multiple student organizations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="bento-card rounded-3xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-wider text-pink-600 dark:text-pink-400">
+                Student Leadership
+              </span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                School Prefect
+              </h3>
+              <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5">
+                Paddiruppu National School, Kaluwanchikudy
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                Assisted in maintaining student discipline, supporting faculty, and mentoring junior students,
+                fostering early leadership and accountability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACADEMIC & INDUSTRY REFERENCES ==================== -->
+    <section id="references" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>06 / Endorsements &amp; References</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Academic &amp; Industry References
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Reference 1 -->
+          <div class="bento-card rounded-3xl p-7 flex flex-col justify-between">
+            <div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-violet-500/15 text-violet-700 dark:text-violet-300 border border-violet-500/30">
+                Academic Reference
+              </span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-4">
+                Mrs. P.K.D.K. Kaushalya
+              </h3>
+              <p class="text-sm font-medium text-cyan-600 dark:text-cyan-400 mt-0.5">
+                Lecturer (Probationary), Dept. of Computing &amp; Information Systems
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Faculty of Computing, Sabaragamuwa University of Sri Lanka
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 space-y-2 text-xs font-mono">
+              <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                <i class="fa-solid fa-envelope text-violet-500 w-4"></i>
+                <a href="mailto:kaushalya@foc.sab.ac.lk" class="hover:text-violet-400 underline-offset-4 hover:underline">kaushalya@foc.sab.ac.lk</a>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                <i class="fa-solid fa-phone text-cyan-500 w-4"></i>
+                <a href="tel:+94717063574" class="hover:text-cyan-400">+94 71 706 3574</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reference 2 -->
+          <div class="bento-card rounded-3xl p-7 flex flex-col justify-between">
+            <div>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
+                Industry Reference
+              </span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-4">
+                Mr. Gobihanath Balasubramaniam
+              </h3>
+              <p class="text-sm font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">
+                Senior Executive Data Scientist
+              </p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Dialog Axiata PLC
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/80 space-y-2 text-xs font-mono">
+              <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                <i class="fa-solid fa-envelope text-emerald-500 w-4"></i>
+                <a href="mailto:gobihanath2601@gmail.com" class="hover:text-emerald-400 underline-offset-4 hover:underline">gobihanath2601@gmail.com</a>
+              </div>
+              <div class="flex items-center gap-2.5 text-slate-600 dark:text-slate-300">
+                <i class="fa-solid fa-phone text-cyan-500 w-4"></i>
+                <a href="tel:+94773337644" class="hover:text-cyan-400">+94 77 333 7644</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact" class="py-20 border-t border-slate-200/60 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+          <!-- Left Column: Direct Contact Info & Copy Buttons -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-violet-600 dark:text-cyan-400 mb-2">
+                <span class="w-2 h-2 rounded-full bg-violet-500"></span>
+                <span>07 / Let's Connect</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                Ready for a Data Science Internship
+              </h2>
+              <p class="text-slate-600 dark:text-slate-300 mt-3 text-sm sm:text-base leading-relaxed">
+                Whether you have a Data Science, Machine Learning, Analytics, or Full-Stack internship opportunity, I'd
+                love to discuss how I can contribute to your engineering and analytics team.
+              </p>
+            </div>
+
+            <!-- Contact Cards -->
+            <div class="space-y-3.5">
+              <!-- Email Card with Copy Button -->
+              <div class="bento-card rounded-2xl p-4 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3.5 min-w-0">
+                  <div class="w-10 h-10 rounded-xl bg-violet-500/15 text-violet-500 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">Direct Email</div>
+                    <a href="mailto:TKathuskan@gmail.com"
+                      class="font-mono text-sm font-semibold text-slate-900 dark:text-white truncate block hover:text-violet-400">
+                      TKathuskan@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <button type="button" id="copyEmailBtn" onclick="copyEmailAddress()"
+                  class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/80 dark:bg-slate-800 hover:bg-violet-600 hover:text-white transition-colors shrink-0">
+                  Copy
+                </button>
+              </div>
+
+              <!-- Phone Card -->
+              <div class="bento-card rounded-2xl p-4 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">Phone / WhatsApp</div>
+                    <a href="tel:+94758114531" class="font-mono text-sm font-semibold text-slate-900 dark:text-white hover:text-cyan-400">
+                      +94 75 811 4531
+                    </a>
+                  </div>
+                </div>
+                <a href="tel:+94758114531"
+                  class="px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-slate-200/80 dark:bg-slate-800 hover:bg-cyan-600 hover:text-white transition-colors">
+                  Call ↗
+                </a>
+              </div>
+
+              <!-- LinkedIn Card -->
+              <a href="https://www.linkedin.com/in/kathuskan-thavarajah/" target="_blank" rel="noopener noreferrer"
+                class="bento-card rounded-2xl p-4 flex items-center justify-between gap-3 group">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">LinkedIn</div>
+                    <div class="font-semibold text-sm text-slate-900 dark:text-white group-hover:text-blue-400 transition-colors">
+                      in/kathuskan-thavarajah
+                    </div>
+                  </div>
+                </div>
+                <span class="text-xs font-mono text-slate-400 group-hover:text-blue-400">Connect ↗</span>
+              </a>
+
+              <!-- GitHub Card -->
+              <a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer"
+                class="bento-card rounded-2xl p-4 flex items-center justify-between gap-3 group">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400">GitHub Repositories</div>
+                    <div class="font-semibold text-sm text-slate-900 dark:text-white group-hover:text-emerald-400 transition-colors">
+                      github.com/Kathuskan
+                    </div>
+                  </div>
+                </div>
+                <span class="text-xs font-mono text-slate-400 group-hover:text-emerald-400">Explore ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Email Draft Composer -->
+          <div class="lg:col-span-7">
+            <form id="contactForm" class="bento-card rounded-3xl p-7 sm:p-8 space-y-5">
+              <div class="flex items-center justify-between border-b border-slate-200/70 dark:border-slate-800/80 pb-4">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white">Quick Message Composer</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Generates a pre-filled email draft directly to TKathuskan@gmail.com</p>
+                </div>
+                <span class="font-mono text-xs text-emerald-500 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Fast Response
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="senderName" class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+                    Your Name *
+                  </label>
+                  <input id="senderName" name="name" type="text" required placeholder="e.g., Hiring Manager"
+                    class="w-full px-4 py-3 rounded-xl text-sm bg-slate-100 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-violet-500" />
+                </div>
+                <div>
+                  <label for="senderEmail" class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+                    Your Email *
+                  </label>
+                  <input id="senderEmail" name="email" type="email" required placeholder="name@company.com"
+                    class="w-full px-4 py-3 rounded-xl text-sm bg-slate-100 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-violet-500" />
+                </div>
+              </div>
+
+              <div>
+                <label for="senderSubject" class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+                  Opportunity / Subject
+                </label>
+                <input id="senderSubject" name="subject" type="text"
+                  placeholder="Data Science Internship Opportunity"
+                  class="w-full px-4 py-3 rounded-xl text-sm bg-slate-100 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-violet-500" />
+              </div>
+
+              <div>
+                <label for="senderMessage" class="block text-xs font-mono uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">
+                  Message *
+                </label>
+                <textarea id="senderMessage" name="message" rows="4" required
+                  placeholder="Hi Kathuskan, we reviewed your Data Science projects and would like to schedule an interview..."
+                  class="w-full px-4 py-3 rounded-xl text-sm bg-slate-100 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-violet-500"></textarea>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                <button type="submit"
+                  class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 shadow-glow transition-all">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span>Open Email Draft ↗</span>
+                </button>
+                <p id="formFeedback" class="text-xs font-mono text-emerald-500" role="status"></p>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-slate-200/70 dark:border-slate-800/80 py-10 bg-white/50 dark:bg-[#05070c]/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2.5">
+        <span class="w-6 h-6 rounded-md bg-gradient-to-tr from-violet-600 to-cyan-500 text-white font-bold flex items-center justify-center text-[10px]">KT</span>
+        <span>&copy; <span id="currentYear">2026</span> Kathuskan Thavarajah &middot; BSc (Hons) in Data Science (SUSL)</span>
+      </div>
+      <div class="flex items-center gap-5 font-mono">
+        <a href="#home" class="hover:text-violet-400 transition-colors">Top &uarr;</a>
+        <a href="Kathuskan_Thavarajah_CV.pdf" download class="hover:text-cyan-400 transition-colors">Download CV</a>
+        <a href="https://github.com/Kathuskan" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTIVE TECHNICAL ARCHITECTURE MODAL ==================== -->
+  <div id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+    class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md">
+    <div
+      class="bento-card w-full max-w-2xl rounded-3xl border border-slate-700/80 bg-white dark:bg-[#0f1523] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4">
+        <div>
+          <span id="modalCategory"
+            class="px-2.5 py-1 rounded-md text-xs font-mono font-semibold bg-violet-500/20 text-violet-600 dark:text-violet-300 border border-violet-500/30">
+            Category
+          </span>
+          <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mt-2">
+            Project Title
+          </h3>
+          <p id="modalAssoc" class="text-xs font-mono text-cyan-600 dark:text-cyan-400 mt-1"></p>
+        </div>
+        <button type="button" onclick="closeProjectModal()" aria-label="Close modal"
+          class="w-9 h-9 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-red-400 hover:border-red-400 transition-colors shrink-0">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Scrollable Content -->
+      <div class="p-6 overflow-y-auto space-y-5 text-sm text-slate-600 dark:text-slate-300">
+        <!-- Metrics Banner -->
+        <div id="modalMetrics" class="flex flex-wrap gap-2 font-mono text-xs"></div>
+
+        <!-- Overview -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Overview</h4>
+          <p id="modalOverview" class="leading-relaxed"></p>
+        </div>
+
+        <!-- Key Technical Achievements -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Key Technical Achievements &amp; Methodology</h4>
+          <ul id="modalBullets" class="space-y-2"></ul>
+        </div>
+
+        <!-- Tech Stack -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Technologies &amp; Skills</h4>
+          <div id="modalSkills" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3 bg-slate-50/50 dark:bg-slate-900/50">
+        <button type="button" onclick="closeProjectModal()"
+          class="px-4 py-2 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300">
+          Close
+        </button>
+        <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500">
+          <i class="fa-brands fa-github"></i>
+          <span>View Repository on GitHub ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // Complete Project Data for Deep-Dive Modal
+    const PROJECTS_DATA = [
+      {
+        title: "AutoValue LK — Vehicle Price Prediction Web Application",
+        category: "Machine Learning & Full-Stack Web App",
+        associated: "Associated with Sabaragamuwa University of Sri Lanka (SUSL)",
+        metrics: ["R² = 0.739", "84.95% within ±20% Advertised Price", "11,750 Cleaned Records", "7 Models Compared"],
+        overview: "Developed an end-to-end machine learning web application that estimates vehicle asking prices in Sri Lanka using brand, model, manufacture year, engine capacity, transmission, fuel type, mileage, and condition.",
+        bullets: [
+          "Combined and cleaned 11,750 Sri Lankan vehicle records; performed exploratory data analysis (EDA), visualizations, and feature engineering (vehicle-age, brand-model interactions, and log-transformed mileage).",
+          "Compared seven regression models using grouped cross-validation to prevent data leakage across vehicle groups.",
+          "Selected and tuned Extra Trees based on validation performance. On held-out test data, the model achieved an R² of 0.739, with 84.95% of predictions falling within ±20% of the advertised price.",
+          "Built a production FastAPI backend and a user-friendly web interface featuring input validation, guided vehicle selection, and price estimates displayed in both Sri Lankan Rupees (LKR) and Lakhs."
+        ],
+        skills: ["Python", "Machine Learning", "FastAPI", "Scikit-learn", "Extra Trees", "Pandas", "Feature Engineering", "HTML/CSS", "JavaScript"],
+        link: "https://github.com/kathuskanthavarajah/used_car_valuation_project"
+      },
+      {
+        title: "IBM Stock Forecasting & Uncertainty Analysis with Databricks",
+        category: "Big Data & Time-Series Analysis",
+        associated: "Associated with Sabaragamuwa University of Sri Lanka (SUSL)",
+        metrics: ["16,272 Stock Observations", "MAE: 4.4037", "RMSE: 7.2174", "83.33% Empirical Interval Coverage"],
+        overview: "Developed a rigorous time-series forecasting study using 16,272 IBM stock observations sourced from Yahoo Finance, combining distributed data preparation in Azure Databricks with statistical modeling in Python.",
+        bullets: [
+          "Used Azure Databricks and PySpark for scalable data preparation and inspection, followed by Python for visualization, stationarity testing, autocorrelation diagnostics, and rolling volatility analysis.",
+          "Compared ARIMA(1,1,0), ARIMA(0,1,1), and ARIMA(1,1,1) against a previous-close naïve baseline using strict chronological data splits and sequential one-day-ahead validation (where the naïve baseline achieved the lowest validation MAE and RMSE).",
+          "Evaluated the selected forecasting procedure on 414 held-out trading days, obtaining an MAE of 4.4037 and RMSE of 7.2174 price units.",
+          "Assessed candidate 90% historical-quantile prediction intervals, achieving 83.33% empirical coverage and documenting extreme-error behavior under changing market regimes."
+        ],
+        skills: ["Azure Databricks", "PySpark", "Python", "Statsmodels", "ARIMA", "Time-Series Forecasting", "Pandas", "Uncertainty Analysis"],
+        link: "https://github.com/Kathuskan"
+      },
+      {
+        title: "LitPredict: NLP Book Rating Predictor",
+        category: "Natural Language Processing & Machine Learning",
+        associated: "Associated with Sabaragamuwa University of Sri Lanka (SUSL)",
+        metrics: ["0.17 Stars MAE", "4,700+ Book Blurbs", "TF-IDF + VADER Concatenation"],
+        overview: "Developed an end-to-end Natural Language Processing (NLP) and Machine Learning pipeline to predict a book's critical reception (average rating) based solely on its raw marketing blurb across 4,700+ books.",
+        bullets: [
+          "Feature Engineering: Built a custom text normalization pipeline and concatenated dense VADER sentiment scores with sparse TF-IDF vocabulary embeddings to capture both emotional tone and semantic meaning.",
+          "Data-Driven Insights: Executed exploratory data analysis (EDA) and Pearson correlation matrices, proving that specific semantic vocabulary is a statistically stronger predictor of critical reception than pure sentiment.",
+          "Model Deployment: Trained and serialized an optimized Random Forest regressor ensemble using Scikit-learn, achieving a Mean Absolute Error (MAE) of 0.17 stars.",
+          "Production-Ready Code: Packaged experimental notebooks into automated, reproducible Python scripts (pipeline.py and predict.py) deployed via Git/SSH."
+        ],
+        skills: ["Natural Language Processing (NLP)", "Python", "Scikit-learn", "TF-IDF", "VADER Sentiment", "Random Forest", "Pandas", "Git/SSH"],
+        link: "https://github.com/kathuskan/mini_nlp_project"
+      },
+      {
+        title: "Sri Lanka Automotive Market Analysis & Valuation Dashboard",
+        category: "Business Intelligence & Interactive Analytics",
+        associated: "Associated with Sabaragamuwa University of Sri Lanka (SUSL)",
+        metrics: ["3-Page Power BI Dashboard", ">50% Toyota & Suzuki Share", "ikman.lk & Riyasewana Dataset"],
+        overview: "Built an interactive 3-page Microsoft Power BI Dashboard analyzing the Sri Lankan secondary vehicle market using real-world listing data sourced from ikman.lk and Riyasewana via Kaggle.",
+        bullets: [
+          "Brand Dominance & Fuel Trends: Identified that Toyota and Suzuki capture over 50% of total market listings, while petrol drivetrains heavily dominate supply over hybrids and EVs.",
+          "Page 1 (Market Composition): Engineered interactive bar charts and treemaps visualizing brand share and powertrain distribution.",
+          "Page 2 (Valuation Curves & Outliers): Mapped non-linear depreciation curves by manufacturing year, regional price premiums centered in Colombo, and mileage-to-price outlier scatter plots.",
+          "Page 3 (Granular Inventory Explorer): Built an interactive vehicle explorer with multi-range sliders for granular listing comparison."
+        ],
+        skills: ["Microsoft Power BI", "Microsoft Power Query", "Data Visualization", "Exploratory Data Analysis", "Business Intelligence"],
+        link: "https://github.com/Kathuskan"
+      },
+      {
+        title: "Shelv — New & Used Book Marketplace",
+        category: "Full-Stack E-Commerce Web Application",
+        associated: "Full-Stack Product Engineering",
+        metrics: ["Buyer / Seller / Admin Workflows", "Stripe + Cash-on-Delivery", "Order & Dispute Tracking"],
+        overview: "Building Shelv, a full-stack marketplace exclusively focused on buying and selling new and used books, supporting complete buyer, seller, and administrator workflows from listing to delivery.",
+        bullets: [
+          "Implemented user registration, password login, and role-based access control across Buyer, Seller, and Administrator accounts.",
+          "Built book listings, condition tagging, and catalog browsing for both new and used books with delivery-address collection during checkout.",
+          "Integrated dual checkout workflows: Cash-on-Delivery (COD) and Stripe card-payment processing.",
+          "Engineered seller order management, inventory updates, and courier dispatch with tracking details, alongside buyer order tracking, reviews, cancellations, refunds, and dispute workflows."
+        ],
+        skills: ["React.js", "Node.js", "Express.js", "MongoDB", "Stripe API", "Role-Based Access Control", "Responsive UI"],
+        link: "https://github.com/kathuskanthavarajah/shelv"
+      },
+      {
+        title: "Pocket Manager — Personal Finance Tracking Application",
+        category: "Full-Stack FinTech Web Application",
+        associated: "Associated with Sabaragamuwa University of Sri Lanka (SUSL)",
+        metrics: ["Real-Time Net Savings UI", "One-Click CSV Export", "Secure Auth + Profile Uploads"],
+        overview: "Developed a comprehensive full-stack personal finance web application designed to help users efficiently manage their income, expenses, and net savings in real time.",
+        bullets: [
+          "Interactive Dashboard: Built a dynamic UI to visualize total income, expenses, and net savings in real time.",
+          "Secure Authentication: Implemented user registration and secure login functionality, including custom profile picture uploads.",
+          "Transaction Management: Developed manual entry systems for adding, editing, and deleting financial records categorized by transaction type.",
+          "Data Export & Responsive UI: Engineered a feature allowing users to generate and download comprehensive transaction reports in CSV format within a mobile-friendly Tailwind CSS architecture."
+        ],
+        skills: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "MySQL", "CSV Data Export"],
+        link: "https://github.com/Kathuskan"
+      }
+    ];
+
+    // 1. Theme Switcher (Default Dark Mode)
+    const htmlEl = document.documentElement;
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function setTheme(mode) {
+      if (mode === 'light') {
+        htmlEl.classList.remove('dark');
+        htmlEl.dataset.theme = 'light';
+        themeIcon.className = 'fa-solid fa-moon text-slate-700 text-sm';
+      } else {
+        htmlEl.classList.add('dark');
+        htmlEl.dataset.theme = 'dark';
+        themeIcon.className = 'fa-solid fa-sun text-amber-400 text-sm';
+      }
+      try {
+        localStorage.setItem('kt_portfolio_theme', mode);
+      } catch (_) {}
+    }
+
+    let initialTheme = 'dark';
+    try {
+      const saved = localStorage.getItem('kt_portfolio_theme');
+      if (saved === 'light' || saved === 'dark') initialTheme = saved;
+    } catch (_) {}
+    setTheme(initialTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = htmlEl.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    });
+
+    // 2. Mobile Navigation Menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+
+    function toggleMobileMenu(forceClose = false) {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (forceClose || !isHidden) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuIcon.className = 'fa-solid fa-bars text-base';
+      } else {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        mobileMenuIcon.className = 'fa-solid fa-xmark text-base';
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => toggleMobileMenu(true));
+    });
+
+    // 3. Project Category Filtering
+    const filterButtons = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active button styles
+        filterButtons.forEach(b => {
+          b.className = 'project-filter-btn px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all border border-slate-300 dark:border-slate-800 bg-white/70 dark:bg-slate-900/70 text-slate-700 dark:text-slate-300 hover:border-violet-500';
+        });
+        btn.className = 'project-filter-btn active px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-md';
+
+        // Filter cards
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 4. Project Technical Architecture Modal
+    const projectModal = document.getElementById('projectModal');
+
+    function openProjectModal(index) {
+      const item = PROJECTS_DATA[index];
+      if (!item) return;
+
+      document.getElementById('modalCategory').textContent = item.category;
+      document.getElementById('modalTitle').textContent = item.title;
+      document.getElementById('modalAssoc').textContent = item.associated;
+      document.getElementById('modalOverview').textContent = item.overview;
+      document.getElementById('modalLink').href = item.link;
+
+      // Render Metrics
+      const metricsEl = document.getElementById('modalMetrics');
+      metricsEl.innerHTML = item.metrics.map(m =>
+        `<span class="px-3 py-1 rounded-lg bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 font-semibold">${m}</span>`
+      ).join('');
+
+      // Render Bullets
+      const bulletsEl = document.getElementById('modalBullets');
+      bulletsEl.innerHTML = item.bullets.map(b =>
+        `<li class="flex items-start gap-2.5">
+          <i class="fa-solid fa-circle-check text-violet-500 mt-1 shrink-0"></i>
+          <span>${b}</span>
+        </li>`
+      ).join('');
+
+      // Render Skills
+      const skillsEl = document.getElementById('modalSkills');
+      skillsEl.innerHTML = item.skills.map(s =>
+        `<span class="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-200/80 dark:bg-slate-800 text-slate-800 dark:text-slate-200">${s}</span>`
+      ).join('');
+
+      projectModal.classList.remove('hidden');
+      projectModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.add('hidden');
+      projectModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) closeProjectModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+        closeProjectModal();
+      }
+    });
+
+    // 5. Copy Email Button (iframe-safe fallback)
+    function copyEmailAddress() {
+      const email = 'TKathuskan@gmail.com';
+      const btn = document.getElementById('copyEmailBtn');
+      const tempInput = document.createElement('textarea');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2200);
+      } catch (_) {
+        btn.textContent = email;
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // 6. Contact Form Mailto Handler
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value.trim();
+      const email = document.getElementById('senderEmail').value.trim();
+      const subjectInput = document.getElementById('senderSubject').value.trim();
+      const message = document.getElementById('senderMessage').value.trim();
+      const feedback = document.getElementById('formFeedback');
+
+      const subject = subjectInput || `Data Science Internship Inquiry from ${name}`;
+      const body = `${message}\n\n---\nFrom: ${name}\nEmail: ${email}`;
+      window.location.href = `mailto:TKathuskan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      feedback.textContent = 'Opening your email client...';
+    });
+
+    // Set Footer Year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
